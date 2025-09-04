@@ -1,0 +1,21 @@
+:root{
+  --primary:#ff5722;
+  --green:#2e7d32;
+}
+body{ background:#f5f6f8; }
+.sidebar{
+  width:240px; height:100vh; position:fixed; inset:0 auto 0 0;
+  background:#fff; border-right:1px solid #e9ecef; padding:20px;
+}
+.brand-dot{ width:12px; height:12px; border-radius:50%; background:var(--primary); }
+.nav-link{ color:#333; padding:10px 12px; border-radius:10px; margin:4px 0; }
+.nav-link:hover{ background:var(--primary); color:#fff; text-decoration:none; }
+.page{ margin-left:240px; min-height:100vh; display:flex; flex-direction:column; }
+.topbar{ height:64px; background:#fff; border-bottom:1px solid #e9ecef; padding:0 16px; }
+.topbar .title{ font-weight:700; color:#333; }
+.topbar .search{ width:220px; }
+.avatar{ width:32px; height:32px; background:var(--green); color:#fff; border-radius:50%;
+ display:flex; align-items:center; justify-content:center; font-weight:700; }
+.content{ padding:16px; }
+.stat-card .stat-label{ color:#6c757d; font-size:14px; }
+.stat-card .stat-value{ font-size:28px; font-weight:800; }
