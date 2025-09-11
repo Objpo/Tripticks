@@ -2,25 +2,22 @@
 <html lang="en">
 
 <head>
-  <title>Tripticks</title>
+  <title>tripticks</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <link rel="stylesheet" href="css/animate.css">
-
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
-
   <link rel="stylesheet" href="css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/style.css">
 
@@ -29,29 +26,84 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Tripticks<span>Travel Agency</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+  <!-- React Navbar mount point -->
+  <div id="navbar-root"></div>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
-          <li class="nav-item"><a href="hotel.html" class="nav-link">Hotel</a></li>
-          <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+  <!-- React Navbar code -->
+  <script type="text/babel">
+    function Navbar() {
+      return (
+        <nav
+          className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+          id="ftco-navbar"
+        >
+          <div className="container">
+            <a className="navbar-brand" href="index.html">
+              Tripticks <span>Travel Agency</span>
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#ftco-nav"
+              aria-controls="ftco-nav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="fa fa-bars"></span> Menu
+
+            </button>
+
+            <div className="collapse navbar-collapse" id="ftco-nav">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item active">
+                  <a href="index.html" className="nav-link">Home</a>
+                </li>
+                <li className="nav-item">
+                  <a href="about.html" className="nav-link">About</a>
+                </li>
+                <li className="nav-item">
+                  <a href="destination.html" className="nav-link">Destination</a>
+                </li>
+                <li className="nav-item">
+                  <a href="hotel.html" className="nav-link">Hotel</a>
+                </li>
+                <li className="nav-item">
+                  <a href="blog.html" className="nav-link">Blog</a>
+                </li>
+                <li className="nav-item">
+                  <a href="contact.html" className="nav-link">Contact</a>
+                </li>
+                <li className="nav-item">
+                  <a href="http://localhost:3000/signup" className="nav-link">Sign Up</a>
+                </li>
+                <li className="nav-item">
+                  <a href="http://localhost:3000/login" className="nav-link">Login</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("navbar-root")).render(<Navbar />);
+  </script>
+
+</body>
+
+</html>
   <!-- END nav -->
 
   <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
