@@ -2,108 +2,50 @@
 <html lang="en">
 
 <head>
-  <title>tripticks</title>
+  <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" href="css/animate.css">
+
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
+
   <link rel="stylesheet" href="css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- React + Babel -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-
-
-  <!-- jQuery + Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </head>
 
 <body>
-  <!-- React Navbar mount point -->
-  <div id="navbar-root"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Pacific<span>Travel Agency</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
 
-
-  <!-- React Navbar code -->
-  <script type="text/babel">
-    function Navbar() {
-      return (
-        <nav
-          className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-          id="ftco-navbar"
-        >
-          <div className="container">
-            <a className="navbar-brand" href="index.html">
-              Tripticks <span>Travel Agency</span>
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#ftco-nav"
-              aria-controls="ftco-nav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="fa fa-bars"></span> Menu
-
-            </button>
-
-            <div className="collapse navbar-collapse" id="ftco-nav">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                  <a href="index.html" className="nav-link">Home</a>
-                </li>
-                <li className="nav-item">
-                  <a href="about.html" className="nav-link">About</a>
-                </li>
-                <li className="nav-item">
-                  <a href="destination.html" className="nav-link">Destination</a>
-                </li>
-                <li className="nav-item">
-                  <a href="hotel.html" className="nav-link">Hotel</a>
-                </li>
-                <li className="nav-item">
-                  <a href="blog.html" className="nav-link">Blog</a>
-                </li>
-                <li className="nav-item">
-                  <a href="contact.html" className="nav-link">Contact</a>
-                </li>
-                <li className="nav-item">
-                  <a href="http://localhost:3000/signup" className="nav-link">Sign Up</a>
-                </li>
-                <li className="nav-item">
-                  <a href="http://localhost:3000/login" className="nav-link">Login</a>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </nav>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("navbar-root")).render(<Navbar />);
-  </script>
-
-</body>
-
-</html>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
+          <li class="nav-item"><a href="hotel.html" class="nav-link">Hotel</a></li>
+          <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- END nav -->
 
   <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
@@ -119,136 +61,147 @@
     </div>
   </section>
 
-  <section class="ftco-section bg-light">
+  <section class="ftco-section">
     <div class="container">
-      <h2 class="text-center mb-5">NEWS</h2>
-      <div id="news-root"></div> <!-- React sẽ render vào đây -->
-    </div>
-  </section>
-
-
-  <script type="text/babel">
-   const { useState, useEffect } = React;
-
-    function TravelNews() {
-      const [articles, setArticles] = useState([]);
-      const [loading, setLoading] = useState(true);
-      const [currentPage, setCurrentPage] = useState(1);
-
-      const articlesPerPage = 3; // chỉ hiển thị 3 bài / trang
-
-      useEffect(() => {
-        fetch(
-          "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8e68ca8c95414191a1ec2bead7aabf22"
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setArticles(data.articles || []);
-            setLoading(false);
-          })
-          .catch((err) => {
-            console.error("Lỗi khi gọi API:", err);
-            setLoading(false);
-          });
-      }, []);
-
-      if (loading) {
-        return <p>NEWS loading...</p>;
-      }
-
-      // Tính toán bài viết cho trang hiện tại
-      const indexOfLastArticle = currentPage * articlesPerPage;
-      const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-      const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
-
-      // Tổng số trang
-      const totalPages = Math.ceil(articles.length / articlesPerPage);
-
-      // Hàm đổi trang
-      const goToPage = (page) => {
-        if (page >= 1 && page <= totalPages) {
-          setCurrentPage(page);
-        }
-      };
-
-      return (
-        <div>
-          <div className="row">
-            {currentArticles.map((article, idx) => (
-              <div className="col-md-4 mb-4" key={idx}>
-                <div className="card h-100 shadow-sm">
-                  <img
-                    src={article.urlToImage || "images/default.jpg"}
-                    className="card-img-top"
-                    alt="news"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{article.title}</h5>
-                    <p className="card-text">
-                      {article.description
-                        ? article.description.slice(0, 100) + "..."
-                        : ""}
-                    </p>
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      className="btn btn-primary"
-                    >
-                      Xem chi tiết
-                    </a>
-                  </div>
+      <div class="row d-flex">
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
                 </div>
               </div>
-            ))}
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
           </div>
-
-        {/* Pagination */}
-          <nav className="d-flex justify-content-center mt-4">
-            <ul className="pagination">
-              {/* Nút Previous (<) */}
-              <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => goToPage(currentPage - 1)}
-                >
-                  &lt;
-                </button>
-              </li>
-
-              {/* Nút số trang */}
-              {Array.from({ length: totalPages }, (_, i) => (
-                <li
-                  key={i}
-                  className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
-                >
-                  <button
-                    className="page-link"
-                    onClick={() => goToPage(i + 1)}
-                  >
-                    {i + 1}
-                  </button>
-                </li>
-              ))}
-
-              {/* Nút Next (>) */}
-              <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => goToPage(currentPage + 1)}
-                >
-                  &gt;
-                </button>
-              </li>
-            </ul>
-          </nav>
         </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("news-root")).render(<TravelNews />);
-
-  </script>
-
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
+                </div>
+              </div>
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
+                </div>
+              </div>
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
+                </div>
+              </div>
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
+                </div>
+              </div>
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+            </a>
+            <div class="text">
+              <div class="d-flex align-items-center mb-4 topp">
+                <div class="one">
+                  <span class="day">11</span>
+                </div>
+                <div class="two">
+                  <span class="yr">2020</span>
+                  <span class="mos">September</span>
+                </div>
+              </div>
+              <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p><a href="#" class="btn btn-primary">Read more</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col text-center">
+          <div class="block-27">
+            <ul>
+              <li><a href="#">&lt;</a></li>
+              <li class="active"><span>1</span></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&gt;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="ftco-intro ftco-section ftco-no-pt">
     <div class="container">
@@ -319,6 +272,18 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+            <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+              target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
         </div>
       </div>
     </div>
