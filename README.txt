@@ -1,15 +1,8 @@
-PACIFIC ADMIN VIEWS (Laravel Blade)
------------------------------------
+Thank you for using our template!
 
-1) Copy cấu trúc vào dự án Laravel của bạn:
-   resources/views/layouts/admin.blade.php
-   resources/views/admin/dashboard.blade.php
-   public/admin/css/style.css
+For more awesome templates please visit https://colorlib.com/wp/templates/
 
-2) Thêm route nhanh trong routes/web.php:
-   Route::get('/admin', function () { return view('admin.dashboard'); })->name('admin.dashboard');
+Copyright information for the template can't be altered/removed unless you purchase a license.
+More information about the license is available here: https://colorlib.com/wp/licence/
 
-3) Truy cập: http://your-app.test/admin
-
-Màu sắc, bố cục và cảm hứng lấy từ template client (cam - trắng - xanh lá).
-Bạn có thể mở rộng thêm các trang: tours.blade.php, hotels.blade.php, bookings.blade.php...
+Removing copyright information without the license will result in suspension of your hosting and/or domain name(s).
