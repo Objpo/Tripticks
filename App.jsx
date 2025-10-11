@@ -1,31 +1,44 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./pages/navbar";
-import BlogSection from "./pages/blogSection.jsx";
-import HomePage from "./pages/homePage.jsx";
+import React, { useEffect } from "react";
+import Navbar from "./components/navbar";
+import Hero from "./components/Hero";
+import SearchSection from "./components/SearchSection";
+import Services from "./components/Services";
+import Testimonial from "./components/Testimonial";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Destination from "./components/Destination";
+import Product from "./components/product";
+import About from "./components/About";
+import Intro from "./components/Intro";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+        });
+    }, []);
+
     return (
         <>
-            {/* Navbar */}
             <Navbar />
-
-            {/* Các tuyến đường */}
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/blog" element={<BlogSection />} />
-                {/* Thêm các route khác sau này */}
-                {/* <Route path="/about" element={<About />} /> */}
-                {/* <Route path="/contact" element={<Contact />} /> */}
-                {/* <Route path="/hotel" element={<Hotel />} /> */}
-            </Routes>
-
-            {/* Footer */}
-            <footer className="bg-dark text-white text-center py-4">
-                <p>© 2025 Tripticks. All rights reserved.</p>
-            </footer>
+            <Hero />
+            <SearchSection />
+            <Services />
+            <Destination />
+            <Product />
+            <About/>
+            <Testimonial />
+            <Blog />
+            <Intro />
+            <Contact />
+            <Footer />
         </>
     );
 }
+
 export default App;
