@@ -1,23 +1,21 @@
 {
-  "name": "tripticks-master",
+  "name": "tripticks-gia-huy",
   "version": "1.0.0",
-  "main": "navbar.js",
+  "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@vitejs/plugin-react": "^5.0.4",
-    "vite": "^7.1.8"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
+    "aos": "^2.3.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.3"
+    "react-router-dom": "^7.9.4",
+    "swiper": "^12.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^5.4.0"
   }
 }

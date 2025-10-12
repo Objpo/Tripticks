@@ -83,7 +83,7 @@ const About = () => {
                                     zIndex: 3,
                                 }}
                             >
-                                
+
                                 <span
                                     className="fa fa-play"
                                     style={{

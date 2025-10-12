@@ -1,44 +1,23 @@
-import React, { useEffect } from "react";
-import Navbar from "./components/navbar";
-import Hero from "./components/Hero";
-import SearchSection from "./components/SearchSection";
-import Services from "./components/Services";
-import Testimonial from "./components/Testimonial";
-import Blog from "./components/Blog";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Destination from "./components/Destination";
-import Product from "./components/product";
-import About from "./components/About";
-import Intro from "./components/Intro";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Destination from "./pages/Destination";
+import Blog from "./pages/Blog";
+import Contact from "./pages/contact";
+import Hotel from "./pages/Hotel";
 
 function App() {
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            easing: "ease-in-out",
-            once: true,
-        });
-    }, []);
-
-    return (
-        <>
-            <Navbar />
-            <Hero />
-            <SearchSection />
-            <Services />
-            <Destination />
-            <Product />
-            <About/>
-            <Testimonial />
-            <Blog />
-            <Intro />
-            <Contact />
-            <Footer />
-        </>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/destination" element={<Destination />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/hotel" element={<Hotel />} />
+    </Routes>
+  );
 }
 
 export default App;

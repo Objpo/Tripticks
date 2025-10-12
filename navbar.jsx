@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   useEffect(() => {
-    // Kích hoạt hiệu ứng khi scroll (nếu có dùng jQuery)
+    // Hiệu ứng khi cuộn (nếu bạn dùng jQuery)
     if (window.$) {
       window.$(window).scroll(function () {
         const $win = window.$(this);
@@ -21,15 +24,17 @@ const Navbar = () => {
     }
   }, []);
 
+  const isActive = (path) => (location.pathname === path ? "active" : "");
+
   return (
     <nav
       className="navbar navbar-expand-lg ftco_navbar ftco-navbar-light"
       id="ftco-navbar"
     >
       <div className="container">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           TripTicks<span>Travel</span>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -44,35 +49,35 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="ftco-nav">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <a href="#home" className="nav-link">
+            <li className={`nav-item ${isActive("/")}`}>
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a href="#about.html" className="nav-link">
+            <li className={`nav-item ${isActive("/about")}`}>
+              <Link to="/about" className="nav-link">
                 About
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a href="#destination" className="nav-link">
+            <li className={`nav-item ${isActive("/destination")}`}>
+              <Link to="/destination" className="nav-link">
                 Destination
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a href="#services" className="nav-link">
-                hotel
-              </a>
+            <li className={`nav-item ${isActive("/hotel")}`}>
+              <Link to="/hotel" className="nav-link">
+                Hotel
+              </Link>
             </li>
-            <li className="nav-item">
-              <a href="#blog" className="nav-link">
+            <li className={`nav-item ${isActive("/blog")}`}>
+              <Link to="/blog" className="nav-link">
                 Blog
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a href="#contact" className="nav-link">
+            <li className={`nav-item ${isActive("/contact")}`}>
+              <Link to="/contact" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -82,4 +87,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
-  
+``
