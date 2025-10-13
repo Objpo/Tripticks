@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Blog2 = () => {
     const [articles, setArticles] = useState([]);
@@ -48,9 +49,9 @@ const Blog2 = () => {
                         <div className="col-md-9 ftco-animate pb-5 text-center">
                             <p className="breadcrumbs">
                                 <span className="mr-2">
-                                    <a href="index.html">
+                                    <Link to="/">
                                         Home <i className="fa fa-chevron-right"></i>
-                                    </a>
+                                    </Link>
                                 </span>{" "}
                                 <span>
                                     Blog <i className="fa fa-chevron-right"></i>
@@ -128,10 +129,7 @@ const Blog2 = () => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-12 text-center">
-                            <div
-                                className="img"
-                                style={{ backgroundImage: "url(images/bg_2.jpg)" }}
-                            >
+                            <div className="img" style={{ backgroundImage: "url(images/bg_2.jpg)" }}>
                                 <div className="overlay"></div>
                                 <h2>We Are Pacific A Travel Agency</h2>
                                 <p>
@@ -139,9 +137,9 @@ const Blog2 = () => {
                                     by their place
                                 </p>
                                 <p className="mb-0">
-                                    <a href="#" className="btn btn-primary px-4 py-3">
+                                    <Link to="/contact" className="btn btn-primary px-4 py-3">
                                         Ask For A Quote
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>

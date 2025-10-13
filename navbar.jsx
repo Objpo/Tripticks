@@ -1,40 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
+  // Hiệu ứng đổi nền khi cuộn
   useEffect(() => {
-    // Hiệu ứng khi cuộn (nếu bạn dùng jQuery)
-    if (window.$) {
-      window.$(window).scroll(function () {
-        const $win = window.$(this);
-        const $navbar = window.$(".ftco_navbar");
-        const st = $win.scrollTop();
-        if (st > 150) {
-          if (!$navbar.hasClass("scrolled")) {
-            $navbar.addClass("scrolled");
-          }
-        } else {
-          if ($navbar.hasClass("scrolled")) {
-            $navbar.removeClass("scrolled sleep");
-          }
-        }
-      });
-    }
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 150);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Kiểm tra đường dẫn hiện tại
   const isActive = (path) => (location.pathname === path ? "active" : "");
 
   return (
     <nav
-      className="navbar navbar-expand-lg ftco_navbar ftco-navbar-light"
+      className={`navbar navbar-expand-lg ftco_navbar ftco-navbar-light ${scrolled ? "scrolled" : ""
+        }`}
       id="ftco-navbar"
     >
       <div className="container">
         <Link className="navbar-brand" to="/">
-          TripTicks<span>Travel</span>
+          Tripticks<span> Travel</span>
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -87,4 +81,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-``
