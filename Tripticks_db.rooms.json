@@ -1,0 +1,800 @@
+[{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd297c"
+  },
+  "country": "Vietnam",
+  "hotel_name": "Saigon Grand Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/saigon_grand_hotel_deluxe1.jpg",
+    "https://example.com/rooms/saigon_grand_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd297d"
+  },
+  "country": "Vietnam",
+  "hotel_name": "Saigon Grand Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/saigon_grand_hotel_suite1.jpg",
+    "https://example.com/rooms/saigon_grand_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd297e"
+  },
+  "country": "Vietnam",
+  "hotel_name": "Hanoi Serenity Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/hanoi_serenity_hotel_deluxe1.jpg",
+    "https://example.com/rooms/hanoi_serenity_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd297f"
+  },
+  "country": "Vietnam",
+  "hotel_name": "Hanoi Serenity Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/hanoi_serenity_hotel_suite1.jpg",
+    "https://example.com/rooms/hanoi_serenity_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2980"
+  },
+  "country": "Thailand",
+  "hotel_name": "Bangkok Palace Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/bangkok_palace_hotel_deluxe1.jpg",
+    "https://example.com/rooms/bangkok_palace_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2981"
+  },
+  "country": "Thailand",
+  "hotel_name": "Bangkok Palace Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/bangkok_palace_hotel_suite1.jpg",
+    "https://example.com/rooms/bangkok_palace_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2982"
+  },
+  "country": "Thailand",
+  "hotel_name": "Chiang Mai Resort",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/chiang_mai_resort_deluxe1.jpg",
+    "https://example.com/rooms/chiang_mai_resort_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2983"
+  },
+  "country": "Thailand",
+  "hotel_name": "Chiang Mai Resort",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/chiang_mai_resort_suite1.jpg",
+    "https://example.com/rooms/chiang_mai_resort_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2984"
+  },
+  "country": "Japan",
+  "hotel_name": "Tokyo Bay Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/tokyo_bay_hotel_deluxe1.jpg",
+    "https://example.com/rooms/tokyo_bay_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2985"
+  },
+  "country": "Japan",
+  "hotel_name": "Tokyo Bay Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/tokyo_bay_hotel_suite1.jpg",
+    "https://example.com/rooms/tokyo_bay_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2986"
+  },
+  "country": "Japan",
+  "hotel_name": "Kyoto Garden Inn",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/kyoto_garden_inn_deluxe1.jpg",
+    "https://example.com/rooms/kyoto_garden_inn_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2987"
+  },
+  "country": "Japan",
+  "hotel_name": "Kyoto Garden Inn",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/kyoto_garden_inn_suite1.jpg",
+    "https://example.com/rooms/kyoto_garden_inn_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2988"
+  },
+  "country": "France",
+  "hotel_name": "Paris Elegance Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/paris_elegance_hotel_deluxe1.jpg",
+    "https://example.com/rooms/paris_elegance_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2989"
+  },
+  "country": "France",
+  "hotel_name": "Paris Elegance Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/paris_elegance_hotel_suite1.jpg",
+    "https://example.com/rooms/paris_elegance_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298a"
+  },
+  "country": "France",
+  "hotel_name": "Nice Riviera Resort",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/nice_riviera_resort_deluxe1.jpg",
+    "https://example.com/rooms/nice_riviera_resort_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298b"
+  },
+  "country": "France",
+  "hotel_name": "Nice Riviera Resort",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/nice_riviera_resort_suite1.jpg",
+    "https://example.com/rooms/nice_riviera_resort_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298c"
+  },
+  "country": "United States",
+  "hotel_name": "New York Central Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/new_york_central_hotel_deluxe1.jpg",
+    "https://example.com/rooms/new_york_central_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298d"
+  },
+  "country": "United States",
+  "hotel_name": "New York Central Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/new_york_central_hotel_suite1.jpg",
+    "https://example.com/rooms/new_york_central_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298e"
+  },
+  "country": "United States",
+  "hotel_name": "Los Angeles Sunset Inn",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/los_angeles_sunset_inn_deluxe1.jpg",
+    "https://example.com/rooms/los_angeles_sunset_inn_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd298f"
+  },
+  "country": "United States",
+  "hotel_name": "Los Angeles Sunset Inn",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/los_angeles_sunset_inn_suite1.jpg",
+    "https://example.com/rooms/los_angeles_sunset_inn_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2990"
+  },
+  "country": "Australia",
+  "hotel_name": "Sydney Harbor Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/sydney_harbor_hotel_deluxe1.jpg",
+    "https://example.com/rooms/sydney_harbor_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2991"
+  },
+  "country": "Australia",
+  "hotel_name": "Sydney Harbor Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/sydney_harbor_hotel_suite1.jpg",
+    "https://example.com/rooms/sydney_harbor_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2992"
+  },
+  "country": "Australia",
+  "hotel_name": "Melbourne Cozy Stay",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/melbourne_cozy_stay_deluxe1.jpg",
+    "https://example.com/rooms/melbourne_cozy_stay_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2993"
+  },
+  "country": "Australia",
+  "hotel_name": "Melbourne Cozy Stay",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/melbourne_cozy_stay_suite1.jpg",
+    "https://example.com/rooms/melbourne_cozy_stay_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2994"
+  },
+  "country": "Brazil",
+  "hotel_name": "Rio Paradise Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/rio_paradise_hotel_deluxe1.jpg",
+    "https://example.com/rooms/rio_paradise_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2995"
+  },
+  "country": "Brazil",
+  "hotel_name": "Rio Paradise Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/rio_paradise_hotel_suite1.jpg",
+    "https://example.com/rooms/rio_paradise_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2996"
+  },
+  "country": "Brazil",
+  "hotel_name": "Sao Paulo Comfort Inn",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/sao_paulo_comfort_inn_deluxe1.jpg",
+    "https://example.com/rooms/sao_paulo_comfort_inn_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2997"
+  },
+  "country": "Brazil",
+  "hotel_name": "Sao Paulo Comfort Inn",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/sao_paulo_comfort_inn_suite1.jpg",
+    "https://example.com/rooms/sao_paulo_comfort_inn_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2998"
+  },
+  "country": "Italy",
+  "hotel_name": "Rome Imperial Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/rome_imperial_hotel_deluxe1.jpg",
+    "https://example.com/rooms/rome_imperial_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd2999"
+  },
+  "country": "Italy",
+  "hotel_name": "Rome Imperial Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/rome_imperial_hotel_suite1.jpg",
+    "https://example.com/rooms/rome_imperial_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299a"
+  },
+  "country": "Italy",
+  "hotel_name": "Venice Lagoon Resort",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/venice_lagoon_resort_deluxe1.jpg",
+    "https://example.com/rooms/venice_lagoon_resort_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299b"
+  },
+  "country": "Italy",
+  "hotel_name": "Venice Lagoon Resort",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/venice_lagoon_resort_suite1.jpg",
+    "https://example.com/rooms/venice_lagoon_resort_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299c"
+  },
+  "country": "India",
+  "hotel_name": "Delhi Heritage Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/delhi_heritage_hotel_deluxe1.jpg",
+    "https://example.com/rooms/delhi_heritage_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299d"
+  },
+  "country": "India",
+  "hotel_name": "Delhi Heritage Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/delhi_heritage_hotel_suite1.jpg",
+    "https://example.com/rooms/delhi_heritage_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299e"
+  },
+  "country": "India",
+  "hotel_name": "Mumbai Ocean View",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/mumbai_ocean_view_deluxe1.jpg",
+    "https://example.com/rooms/mumbai_ocean_view_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd299f"
+  },
+  "country": "India",
+  "hotel_name": "Mumbai Ocean View",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/mumbai_ocean_view_suite1.jpg",
+    "https://example.com/rooms/mumbai_ocean_view_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd29a0"
+  },
+  "country": "South Korea",
+  "hotel_name": "Seoul Grand Stay",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/seoul_grand_stay_deluxe1.jpg",
+    "https://example.com/rooms/seoul_grand_stay_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd29a1"
+  },
+  "country": "South Korea",
+  "hotel_name": "Seoul Grand Stay",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/seoul_grand_stay_suite1.jpg",
+    "https://example.com/rooms/seoul_grand_stay_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd29a2"
+  },
+  "country": "South Korea",
+  "hotel_name": "Busan Beach Hotel",
+  "room_name": "Deluxe Room",
+  "type": "Deluxe",
+  "price_per_night": 120,
+  "available": true,
+  "max_guests": 3,
+  "description": "Phòng Deluxe sang trọng, đầy đủ tiện nghi và view đẹp.",
+  "images": [
+    "https://example.com/rooms/busan_beach_hotel_deluxe1.jpg",
+    "https://example.com/rooms/busan_beach_hotel_deluxe2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68edf5e76a3a809aa8dd29a3"
+  },
+  "country": "South Korea",
+  "hotel_name": "Busan Beach Hotel",
+  "room_name": "Suite Room",
+  "type": "Suite",
+  "price_per_night": 180,
+  "available": true,
+  "max_guests": 4,
+  "description": "Phòng Suite rộng rãi, có phòng khách riêng và ban công.",
+  "images": [
+    "https://example.com/rooms/busan_beach_hotel_suite1.jpg",
+    "https://example.com/rooms/busan_beach_hotel_suite2.jpg"
+  ],
+  "created_at": {
+    "$date": "2025-10-14T07:03:32.000Z"
+  }
+}]
