@@ -12,6 +12,7 @@ Route::get('/login', function () {
     return view('pages.samples.login');
 });
 
+
 Route::get('/register', function () {
     return view('pages.samples.register');
 });
@@ -23,6 +24,10 @@ Route::get('/quanlykhachsan', function () {
 Route::get('/quanlytour', function () {
     return view('pages.samples.quanlytour');
 });
-
 });
+
+Route::get('/admin/logout', function () {
+    return view('pages.samples.login');
+});
+
 

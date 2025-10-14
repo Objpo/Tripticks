@@ -5,28 +5,34 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
-
+  <title>Trip ticks Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?php echo e(asset('vendors/feather/feather.css')); ?>">
-  <link rel="stylesheet" href="<?php echo e(asset('vendors/ti-icons/css/themify-icons.css')); ?>">
-  <link rel="stylesheet" href="<?php echo e(asset('vendors/css/vendor.bundle.base.css')); ?>">
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
-
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="<?php echo e(asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')); ?>">
-  <link rel="stylesheet" href="<?php echo e(asset('vendors/ti-icons/css/themify-icons.css')); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo e(asset('js/select.dataTables.min.css')); ?>">
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
-
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?php echo e(asset('css/vertical-layout-light/style.css')); ?>">
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
 
-  <link rel="shortcut icon" href="<?php echo e(asset('images/favicon.png')); ?>" />
+
 </head>
-
 <body>
+  
+  <script>
+    // Nếu chưa đăng nhập thì quay lại trang login.html
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "admin/login";
+    }
+  </script>
+  
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -61,7 +67,7 @@
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="/admin/logout" onclick="localStorage.removeItem('loggedIn')">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -120,8 +126,8 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('/admin/login')); ?>"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('/admin/register')); ?>"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="admin/login"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="admin/register"> Register </a></li>
               </ul>
             </div>
           </li>
@@ -133,8 +139,8 @@
             </a>
             <div class="collapse" id="error">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('/quanlykhachsan')); ?>"> Quản lý khách sạn </a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('/quanlytour')); ?>"> Quản lý tour </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/quanlykhachsan.html"> Quản lý khách sạn </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/quanlytour.html"> Quản lý tour </a></li>
               </ul>
             </div>
           </li>
@@ -391,33 +397,47 @@
   </div>
   <!-- container-scroller -->
 
- <!-- plugins:js -->
-<script src="<?php echo e(asset('vendors/js/vendor.bundle.base.js')); ?>"></script>
-<!-- endinject -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="js/dataTables.select.min.js"></script>
 
-<!-- Plugin js for this page -->
-<script src="<?php echo e(asset('vendors/chart.js/Chart.min.js')); ?>"></script>
-<script src="<?php echo e(asset('vendors/datatables.net/jquery.dataTables.js')); ?>"></script>
-<script src="<?php echo e(asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js')); ?>"></script>
-<script src="<?php echo e(asset('js/dataTables.select.min.js')); ?>"></script>
-<!-- End plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <script src="js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
 
-<!-- inject:js -->
-<script src="<?php echo e(asset('js/off-canvas.js')); ?>"></script>
-<script src="<?php echo e(asset('js/hoverable-collapse.js')); ?>"></script>
-<script src="<?php echo e(asset('js/template.js')); ?>"></script>
-<script src="<?php echo e(asset('js/settings.js')); ?>"></script>
-<script src="<?php echo e(asset('js/todolist.js')); ?>"></script>
-<!-- endinject -->
+  <script>
+    // Kiểm tra đăng nhập
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "pages/samples/login.html";
+    }
+  
+    // Hàm logout
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      // Quay lại đúng login.html
+      window.location.href = "pages/samples/login.html";
+    }
+  </script>
 
-<!-- Custom js for this page-->
-<script src="<?php echo e(asset('js/dashboard.js')); ?>"></script>
-<script src="<?php echo e(asset('js/Chart.roundedBarCharts.js')); ?>"></script>
-<!-- End custom js for this page-->
-
+    
+  
 
 </body>
-</html>
 
+</html>
 
 <?php /**PATH D:\duanTripticks\Tripticks\admin\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
