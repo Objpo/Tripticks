@@ -7,6 +7,7 @@ const About = () => {
   return (
     <>
       <Navbar />
+
       <section
         className="hero-wrap"
         style={{
@@ -15,7 +16,7 @@ const About = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          height: "100vh", 
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -24,6 +25,7 @@ const About = () => {
           position: "relative",
         }}
       >
+        
         <div
           className="overlay"
           style={{
@@ -32,25 +34,42 @@ const About = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0,0,0,0.4)", 
+            backgroundColor: "rgba(0,0,0,0.4)",
           }}
         ></div>
 
         <div
           className="container text-center"
+          
           style={{
             position: "relative",
             zIndex: 1,
           }}
         >
-        
-          <h1>About Us</h1>
-          <p>We are passionate about travel and adventure.</p>
+          <p className="breadcrumbs" style={{ fontSize: "16px", color: "#000000ff" }}>
+            <span className="mr-2">
+              <a
+                href="index.html"
+                style={{ color: "#000000ff", textDecoration: "none" }}
+              >
+                Home <i className="fa fa-chevron-right"></i>
+              </a>
+            </span>
+            <span>
+              About Us <i className="fa fa-chevron-right"></i>
+            </span>
+          </p>
+
+          <h1 className="mb-0 bread" style={{ fontWeight: "bold", color:"#000000ff" }}>
+            About Us
+          </h1>
+          <p className="mb-0 bread" style={{ color:"#000000ff" }}>
+            We are passionate about travel and adventure.</p>
         </div>
       </section>
-     <AboutContent />
+
+      <AboutContent />
       <Footer />
-      
     </>
   );
 };
