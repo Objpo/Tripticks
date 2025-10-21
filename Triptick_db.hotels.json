@@ -1,0 +1,506 @@
+[{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb7"
+  },
+  "hotel_name": "Bangkok Palace Hotel",
+  "country": "Thailand",
+  "img": "https://images.unsplash.com/photo-1558244033-6449f57f5115?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb8"
+  },
+  "hotel_name": "Chiang Mai Resort",
+  "country": "Thailand",
+  "img": "https://images.unsplash.com/photo-1507914800366-24e5a959f635?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb9"
+  },
+  "hotel_name": "Tokyo Bay Hotel",
+  "country": "Japan",
+  "img": "https://images.unsplash.com/photo-1542302352-78a0e83b1c55?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddba"
+  },
+  "hotel_name": "Kyoto Garden Inn",
+  "country": "Japan",
+  "img": "https://images.unsplash.com/photo-1542691516-e4d6d6e0e64e?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbb"
+  },
+  "hotel_name": "Paris Elegance Hotel",
+  "country": "France",
+  "img": "https://images.unsplash.com/photo-1533035353720-37b572621ffb?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbc"
+  },
+  "hotel_name": "Nice Riviera Resort",
+  "country": "France",
+  "img": "https://images.unsplash.com/photo-1563297125-9a8c17105776?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbd"
+  },
+  "hotel_name": "New York Central Hotel",
+  "country": "United States",
+  "img": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbe"
+  },
+  "hotel_name": "Los Angeles Sunset Inn",
+  "country": "United States",
+  "img": "https://images.unsplash.com/photo-1546522549-33b666a4f5f5?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbf"
+  },
+  "hotel_name": "Sydney Harbor Hotel",
+  "country": "Australia",
+  "img": "https://images.unsplash.com/photo-1523908569584-c5a4b77f8842?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc0"
+  },
+  "hotel_name": "Melbourne Cozy Stay",
+  "country": "Australia",
+  "img": "https://images.unsplash.com/photo-1520188686259-21a1f0a8d6f5?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc1"
+  },
+  "hotel_name": "Rio Paradise Hotel",
+  "country": "Brazil",
+  "img": "https://images.unsplash.com/photo-1582049901765-b777a94931a3?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc2"
+  },
+  "hotel_name": "Sao Paulo Comfort Inn",
+  "country": "Brazil",
+  "img": "https://images.unsplash.com/photo-1588636506305-ad6f564756c8?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc3"
+  },
+  "hotel_name": "Rome Imperial Hotel",
+  "country": "Italy",
+  "img": "https://images.unsplash.com/photo-1558913926-2679589d1469?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc4"
+  },
+  "hotel_name": "Venice Lagoon Resort",
+  "country": "Italy",
+  "img": "https://images.unsplash.com/photo-1531213076823-74d3390d4078?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc5"
+  },
+  "hotel_name": "Delhi Heritage Hotel",
+  "country": "India",
+  "img": "https://images.unsplash.com/photo-1549488344-938b813d460d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc6"
+  },
+  "hotel_name": "Mumbai Ocean View",
+  "country": "India",
+  "img": "https://images.unsplash.com/photo-1549488344-938b813d460d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc7"
+  },
+  "hotel_name": "Seoul Grand Stay",
+  "country": "South Korea",
+  "img": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc8"
+  },
+  "hotel_name": "Busan Beach Hotel",
+  "country": "South Korea",
+  "img": "https://images.unsplash.com/photo-1549488344-938b813d460d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f724683ed4b3e41f0d7af8"
+  },
+  "hotel_name": "Triptick Grand Resort",
+  "country": "Vietnam",
+  "img": "https://images.unsplash.com/photo-1549488344-938b813d460d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Standard Double Room",
+      "type": "Double",
+      "price_per_night": 95,
+      "max_guests": 2,
+      "available": true
+    },
+    {
+      "room_name": "Deluxe Family Suite",
+      "type": "Family",
+      "price_per_night": 250,
+      "max_guests": 4,
+      "available": true
+    },
+    {
+      "room_name": "King Penthouse",
+      "type": "Suite",
+      "price_per_night": 480,
+      "max_guests": 2,
+      "available": false
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-05-20T10:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-20T10:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f724683ed4b3e41f0d7afa"
+  },
+  "hotel_name": "Triptick Grand Đà Nẵng",
+  "country": "Vietnam",
+  "img": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?fit=crop&w=1200&q=80",
+  "rooms": [
+    {
+      "room_name": "Standard Double Room",
+      "type": "Double",
+      "price_per_night": 95,
+      "max_guests": 2,
+      "available": true
+    },
+    {
+      "room_name": "Deluxe Family Suite",
+      "type": "Family",
+      "price_per_night": 250,
+      "max_guests": 4,
+      "available": true
+    },
+    {
+      "room_name": "Executive Suite",
+      "type": "Suite",
+      "price_per_night": 480,
+      "max_guests": 2,
+      "available": false
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-10-21T06:45:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T06:45:00.000Z"
+  }
+}]
