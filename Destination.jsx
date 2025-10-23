@@ -1,12 +1,11 @@
 import React from "react";
-import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
+import Hero from "../components/Hero";
 import Destination2 from "../components/Destination2";
 
 const Destination = () => {
     return (
         <>
-            <Navbar />
             <Destination2 />
             <Footer />
         </>

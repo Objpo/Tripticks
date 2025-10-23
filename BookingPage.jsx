@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
-import About2 from "../components/About2";
+import BookingContent from "../components/BookingContent";
 
-const About = () => {
+const BookingPage = () => {
     return (
-        <>
+        <div>
             <Navbar />
-            <About2 />
+            <BookingContent />
             <Footer />
-        </>
+        </div>
     );
 };
 
-export default About;
+export default BookingPage;

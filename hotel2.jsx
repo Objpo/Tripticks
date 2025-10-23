@@ -1,237 +1,240 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// 💡 CẢI TIẾN: Thay thế Link và các hook của Navbar bằng component Navbar thực tế
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getHotels } from "../api/index"; // Giả định đường dẫn
+import { FaSpinner } from "react-icons/fa";
+
+// BẮT ĐẦU CODE NAVBAR THỰC TẾ
+const Navbar = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [scrolled, setScrolled] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // Kiểm tra token trong localStorage
+    useEffect(() => {
+        // Sử dụng kiểm tra an toàn cho môi trường thực tế:
+        const token = typeof window !== 'undefined' ? localStorage.getItem("token") : null;
+        setIsLoggedIn(!!token);
+    }, [location]);
+
+    // Hiệu ứng đổi nền khi cuộn
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 150);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const isActive = (path) => (location.pathname === path ? "active" : "");
+
+    // Xử lý đăng xuất
+    const handleLogout = () => {
+        // Sử dụng kiểm tra an toàn cho môi trường thực tế:
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem("token");
+        }
+        setIsLoggedIn(false);
+        navigate("/login");
+    };
+
+    return (
+        // 💡 SỬA CSS CỐ ĐỊNH: Đảm bảo z-index cao và position fixed
+        <nav
+            className={`navbar navbar-expand-lg ftco_navbar ftco-navbar-light ${scrolled ? "scrolled" : ""}`}
+            id="ftco-navbar"
+            style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1050 }}
+        >
+            <div className="container">
+                <Link className="navbar-brand" to="/">
+                    Tripticks<span> Travel</span>
+                </Link>
+
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#ftco-nav"
+                    aria-controls="ftco-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="oi oi-menu"></span> Menu
+                </button>
+
+                <div className="collapse navbar-collapse" id="ftco-nav">
+                    <ul className="navbar-nav ml-auto">
+                        <li className={`nav-item ${isActive("/")}`}>
+                            <Link to="/" className="nav-link" style={{ fontSize: '0.9rem' }}>Home</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/about")}`}>
+                            <Link to="/about" className="nav-link" style={{ fontSize: '0.9rem' }}>About</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/booking")}`}>
+                            <Link to="/booking" className="nav-link" style={{ fontSize: '0.9rem' }}>Tour Booking</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/hotel-booking")}`}>
+                            <Link to="/hotel-booking" className="nav-link" style={{ fontSize: '0.9rem' }}>Hotel Booking</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/destination")}`}>
+                            <Link to="/destination" className="nav-link" style={{ fontSize: '0.9rem' }}>Destination</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/hotels")}`}>
+                            <Link to="/hotels" className="nav-link" style={{ fontSize: '0.9rem' }}>Hotel</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/blog")}`}>
+                            <Link to="/blog" className="nav-link" style={{ fontSize: '0.9rem' }}>Blog</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/contact")}`}>
+                            <Link to="/contact" className="nav-link" style={{ fontSize: '0.9rem' }}>Contact</Link>
+                        </li>
+
+                        {isLoggedIn ? (
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle d-flex align-items-center"
+                                    href="#"
+                                    id="userDropdown"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <i className="fa fa-user-circle" style={{ fontSize: "22px", marginRight: "6px" }}></i>
+                                    Account
+                                </a>
+                                <div className="dropdown-menu dropdown-menu-right">
+                                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                                    <div className="dropdown-divider"></div>
+                                    <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+                                </div>
+                            </li>
+                        ) : (
+                            <>
+                                <li className="nav-item"><Link to="/signup" className="nav-link">Signup</Link></li>
+                                <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
+};
+// KẾT THÚC CODE NAVBAR THỰC TẾ
 
 const Hotel2 = () => {
+    const [hotels, setHotels] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "/js/main.js";
-        script.async = true;
-        document.body.appendChild(script);
-        return () => document.body.removeChild(script);
+        getHotels()
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setHotels(data);
+                } else {
+                    setHotels([]);
+                    setError("Dữ liệu từ API không phải là mảng.");
+                }
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Lỗi khi lấy dữ liệu khách sạn:", err);
+                setError(err.message);
+                setLoading(false);
+            });
     }, []);
 
     return (
         <div>
-            {/* Navbar */}
-            <nav
-                className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-                id="ftco-navbar"
-            >
-                <div className="container">
-                    <Link className="navbar-brand" to="/">
-                        Tripticks<span>Travel Agency</span>
-                    </Link>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#ftco-nav"
-                        aria-controls="ftco-nav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="oi oi-menu"></span> Menu
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="ftco-nav">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <Link to="/" className="nav-link">
-                                    Home
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/about" className="nav-link">
-                                    About
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/destination" className="nav-link">
-                                    Destination
-                                </Link>
-                            </li>
-                            <li className="nav-item active">
-                                <Link to="/hotel" className="nav-link">
-                                    Hotel
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/blog" className="nav-link">
-                                    Blog
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/contact" className="nav-link">
-                                    Contact
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            {/* 💡 BƯỚC 1: RENDER NAVBAR NGAY TẠI ĐÂY */}
+            <Navbar />
 
             {/* Hero Section */}
             <section
-                className="hero-wrap hero-wrap-2 js-fullheight"
-                style={{ backgroundImage: "url('images/bg_1.jpg')" }}
+                className="hero-wrap hero-wrap-2"
+                style={{
+                    backgroundImage: "url('images/bg_1.jpg')",
+                    height: '50vh',
+                    minHeight: '400px',
+                    backgroundPosition: 'center center',
+                    backgroundSize: 'cover',
+                    position: 'relative',
+                    // ĐÃ SỬA: THÊM PADDING AN TOÀN VÀO HERO SECTION
+                    paddingTop: '70px',
+                }}
             >
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-                        <div className="col-md-9 ftco-animate pb-5 text-center">
+                <div className="overlay" style={{ opacity: 0.5 }}></div>
+                <div className="container" style={{ position: 'relative', height: '100%' }}>
+                    <div className="row no-gutters slider-text justify-content-center align-items-center" style={{ height: '100%' }}>
+                        <div className="col-md-9 pb-5 text-center" style={{ zIndex: 2, color: 'white' }}>
                             <p className="breadcrumbs">
                                 <span className="mr-2">
-                                    <Link to="/">
-                                        Home <i className="fa fa-chevron-right"></i>
-                                    </Link>
+                                    <Link to="/" style={{ color: 'white' }}>Home <i className="fa fa-chevron-right"></i></Link>
                                 </span>{" "}
-                                <span>
-                                    Hotel <i className="fa fa-chevron-right"></i>
-                                </span>
+                                <span>Hotel <i className="fa fa-chevron-right"></i></span>
                             </p>
-                            <h1 className="mb-0 bread">Hotel</h1>
+                            <h1 className="mb-0 bread" style={{ color: 'white' }}>Hotel</h1>
                         </div>
+
                     </div>
                 </div>
             </section>
 
-            {/* Search Bar */}
-            <section className="ftco-section ftco-no-pb">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="search-wrap-1 ftco-animate">
-                                <form action="#" className="search-property-1">
-                                    <div className="row no-gutters">
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4 border-0">
-                                                <label>Destination</label>
-                                                <div className="form-field">
-                                                    <div className="icon">
-                                                        <span className="fa fa-search"></span>
-                                                    </div>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        placeholder="Search place"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Check-in date</label>
-                                                <div className="form-field">
-                                                    <div className="icon">
-                                                        <span className="fa fa-calendar"></span>
-                                                    </div>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control checkin_date"
-                                                        placeholder="Check In Date"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Check-out date</label>
-                                                <div className="form-field">
-                                                    <div className="icon">
-                                                        <span className="fa fa-calendar"></span>
-                                                    </div>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control checkout_date"
-                                                        placeholder="Check Out Date"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Price Limit</label>
-                                                <div className="form-field">
-                                                    <div className="select-wrap">
-                                                        <div className="icon">
-                                                            <span className="fa fa-chevron-down"></span>
-                                                        </div>
-                                                        <select className="form-control">
-                                                            <option>$5,000</option>
-                                                            <option>$10,000</option>
-                                                            <option>$50,000</option>
-                                                            <option>$100,000</option>
-                                                            <option>$200,000</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group d-flex w-100 border-0">
-                                                <div className="form-field w-100 align-items-center d-flex">
-                                                    <input
-                                                        type="submit"
-                                                        value="Search"
-                                                        className="align-self-stretch form-control btn btn-primary"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Hotel List */}
+            {/* Danh sách Khách sạn */}
             <section className="ftco-section">
                 <div className="container">
-                    <div className="row">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-                            <div className="col-md-4 ftco-animate" key={i}>
-                                <div className="project-wrap hotel">
-                                    <a
-                                        href="#"
-                                        className="img"
-                                        style={{
-                                            backgroundImage: `url(images/hotel-resto-${i}.jpg)`,
-                                        }}
-                                    >
-                                        <span className="price">$200/person</span>
-                                    </a>
-                                    <div className="text p-4">
-                                        <p className="star mb-2">
-                                            {[...Array(5)].map((_, j) => (
-                                                <span key={j} className="fa fa-star"></span>
-                                            ))}
-                                        </p>
-                                        <span className="days">7 Days Tour</span>
-                                        <h3>
-                                            <a href="#">Manila Hotel</a>
-                                        </h3>
-                                        <p className="location">
-                                            <span className="fa fa-map-marker"></span> Manila,
-                                            Philippines
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                <span className="flaticon-shower"></span>2
-                                            </li>
-                                            <li>
-                                                <span className="flaticon-king-size"></span>3
-                                            </li>
-                                            <li>
-                                                <span className="flaticon-sun-umbrella"></span>Near Beach
-                                            </li>
-                                        </ul>
+                    {loading ? (
+                        <p className="text-center w-100 mt-5">
+                            <FaSpinner className="fa-spin" /> Đang tải...
+                        </p>
+                    ) : error ? (
+                        <p className="text-center w-100 mt-5" style={{ color: "red" }}>
+                            {error}
+                        </p>
+                    ) : hotels.length === 0 ? (
+                        <p className="text-center w-100 mt-5">Không có khách sạn nào.</p>
+                    ) : (
+                        <div className="row">
+                            {hotels.map((room, index) => (
+                                <div className="col-md-4" key={room._id || index} style={{ marginBottom: '30px' }}>
+                                    <div style={{ border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden', position: 'relative' }}>
+                                        <img
+                                            src={room.hotel_img || "images/default.jpg"}
+                                            alt={room.room_name}
+                                            style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                                        />
+
+                                        <span className="price" style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '3px' }}>
+                                            ${room.price_per_night || 0}/đêm
+                                        </span>
+
+                                        <div className="text p-4">
+                                            <h3>{room.room_name || "Phòng không tên"}</h3>
+                                            <p style={{ fontWeight: 'bold' }}>{room.hotel_name || "Khách sạn không tên"}</p>
+                                            <p className="location">
+                                                <span className="fa fa-map-marker"></span> {room.country || "Không xác định"}
+                                            </p>
+                                            <p>Loại: {room.type || "Không xác định"}</p>
+
+                                            {/* 💡 ĐÃ THÊM: Số khách tối đa */}
+                                            <p style={{ fontSize: '14px' }}>
+                                                Tối đa: {room.max_guests || 0} khách
+                                            </p>
+
+                                            {/* 💡 ĐÃ THÊM: Trạng thái còn trống */}
+                                            <p style={{ fontWeight: 'bold', color: room.available ? 'green' : 'red' }}>
+                                                Trạng thái: {room.available ? 'Còn trống' : 'Đã đặt'}
+                                            </p>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </div>

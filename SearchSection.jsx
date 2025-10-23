@@ -40,17 +40,7 @@ const SearchSection = () => {
                                         role="tablist"
                                         aria-orientation="vertical"
                                     >
-                                        <a
-                                            className="nav-link active mr-md-1"
-                                            id="v-pills-1-tab"
-                                            data-toggle="pill"
-                                            href="#v-pills-1"
-                                            role="tab"
-                                            aria-controls="v-pills-1"
-                                            aria-selected="true"
-                                        >
-                                            Search Tour
-                                        </a>
+
 
                                         <a
                                             className="nav-link"

@@ -1,160 +1,249 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+// 💡 CẦN SỬ DỤNG useLocation, useNavigate cho Navbar
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getTours } from "../api/index"; // Sử dụng API client đã định nghĩa
+import { FaSpinner } from "react-icons/fa";
 
-const Destination2 = () => {
+// BẮT ĐẦU CODE NAVBAR THỰC TẾ (Đã được tích hợp)
+const Navbar = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [scrolled, setScrolled] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // Kiểm tra token trong localStorage
     useEffect(() => {
-        // Load các script cần thiết (Bootstrap, jQuery, v.v.)
-        const script = document.createElement("script");
-        script.src = "/js/main.js"; // file JS gốc
-        script.async = true;
-        document.body.appendChild(script);
-        return () => document.body.removeChild(script);
+        const token = typeof window !== 'undefined' ? localStorage.getItem("token") : null;
+        setIsLoggedIn(!!token);
+    }, [location]);
+
+    // Hiệu ứng đổi nền khi cuộn
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 150);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const destinations = [
-        { id: 1, img: "images/destination-1.jpg", days: "8 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 2, img: "images/destination-2.jpg", days: "10 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 3, img: "images/destination-3.jpg", days: "7 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 4, img: "images/destination-4.jpg", days: "8 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 5, img: "images/destination-5.jpg", days: "10 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 6, img: "images/destination-6.jpg", days: "7 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 7, img: "images/destination-7.jpg", days: "7 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 8, img: "images/destination-8.jpg", days: "7 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-        { id: 9, img: "images/destination-9.jpg", days: "7 Days Tour", price: "$550/person", location: "Banaue, Ifugao, Philippines" },
-    ];
+    const isActive = (path) => (location.pathname === path ? "active" : "");
+
+    // Xử lý đăng xuất
+    const handleLogout = () => {
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem("token");
+        }
+        setIsLoggedIn(false);
+        navigate("/login");
+    };
+
+    return (
+        // SỬA CSS CỐ ĐỊNH: Đảm bảo z-index cao và position fixed
+        <nav
+            className={`navbar navbar-expand-lg ftco_navbar ftco-navbar-light ${scrolled ? "scrolled" : ""}`}
+            id="ftco-navbar"
+            style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1050 }}
+        >
+            <div className="container">
+                <Link className="navbar-brand" to="/">
+                    Tripticks<span> Travel</span>
+                </Link>
+
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#ftco-nav"
+                    aria-controls="ftco-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="oi oi-menu"></span> Menu
+                </button>
+
+                <div className="collapse navbar-collapse" id="ftco-nav">
+                    <ul className="navbar-nav ml-auto">
+                        <li className={`nav-item ${isActive("/")}`}>
+                            <Link to="/" className="nav-link" style={{ fontSize: '0.9rem' }}>Home</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/about")}`}>
+                            <Link to="/about" className="nav-link" style={{ fontSize: '0.9rem' }}>About</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/booking")}`}>
+                            <Link to="/booking" className="nav-link" style={{ fontSize: '0.9rem' }}>Tour Booking</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/hotel-booking")}`}>
+                            <Link to="/hotel-booking" className="nav-link" style={{ fontSize: '0.9rem' }}>Hotel Booking</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/destination")}`}>
+                            <Link to="/destination" className="nav-link" style={{ fontSize: '0.9rem' }}>Destination</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/hotels")}`}>
+                            <Link to="/hotels" className="nav-link" style={{ fontSize: '0.9rem' }}>Hotel</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/blog")}`}>
+                            <Link to="/blog" className="nav-link" style={{ fontSize: '0.9rem' }}>Blog</Link>
+                        </li>
+                        <li className={`nav-item ${isActive("/contact")}`}>
+                            <Link to="/contact" className="nav-link" style={{ fontSize: '0.9rem' }}>Contact</Link>
+                        </li>
+                        {isLoggedIn ? (
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle d-flex align-items-center"
+                                    href="#"
+                                    id="userDropdown"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <i className="fa fa-user-circle" style={{ fontSize: "22px", marginRight: "6px" }}></i>
+                                    Account
+                                </a>
+                                <div className="dropdown-menu dropdown-menu-right">
+                                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                                    <div className="dropdown-divider"></div>
+                                    <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+                                </div>
+                            </li>
+                        ) : (
+                            <>
+                                <li className="nav-item"><Link to="/signup" className="nav-link">Signup</Link></li>
+                                <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
+};
+// KẾT THÚC CODE NAVBAR THỰC TẾ
+
+
+const Destination2 = () => {
+    const [tours, setTours] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); // Bổ sung state error
+
+    useEffect(() => {
+        getTours()
+            .then((data) => {
+                console.log("Dữ liệu Tour từ API:", data);
+                if (Array.isArray(data)) {
+                    setTours(data);
+                } else {
+                    setTours([]);
+                    setError("Dữ liệu Tour từ API không phải là mảng.");
+                }
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Lỗi khi lấy dữ liệu Tour:", err);
+                setError(err.message);
+                setLoading(false);
+            });
+    }, []);
 
     return (
         <div>
+            <Navbar />
+
             {/* Hero Section */}
             <section
-                className="hero-wrap hero-wrap-2 js-fullheight"
-                style={{ backgroundImage: "url('images/bg_1.jpg')" }}
+                className="hero-wrap hero-wrap-2"
+                style={{
+                    backgroundImage: "url('images/bg_1.jpg')",
+                    height: '50vh', // Giữ chiều cao cố định
+                    minHeight: '400px',
+                    backgroundPosition: 'center center',
+                    backgroundSize: 'cover',
+                    position: 'relative',
+                    paddingTop: '70px', // Đệm để Navbar hiển thị
+                }}
             >
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-                        <div className="col-md-9 ftco-animate pb-5 text-center">
+                <div className="overlay" style={{ opacity: 0.5 }}></div>
+                <div className="container" style={{ position: 'relative', height: '100%' }}>
+                    {/* ĐÃ SỬA: Loại bỏ js-fullheight khỏi row */}
+                    <div className="row no-gutters slider-text justify-content-center align-items-center" style={{ height: '100%' }}>
+                        {/* ĐÃ SỬA: Loại bỏ ftco-animate */}
+                        <div className="col-md-9 pb-5 text-center" style={{ zIndex: 2, color: 'white' }}>
+
+                            {/* BREADCRUMB */}
                             <p className="breadcrumbs">
                                 <span className="mr-2">
-                                    <a href="index.html">Home <i className="fa fa-chevron-right"></i></a>
+                                    <Link to="/" style={{ color: 'white' }}>Home <i className="fa fa-chevron-right"></i></Link>
                                 </span>{" "}
-                                <span>Tour List <i className="fa fa-chevron-right"></i></span>
+                                <span>Destination <i className="fa fa-chevron-right"></i></span>
                             </p>
-                            <h1 className="mb-0 bread">Tours List</h1>
+
+                            {/* HEADER CHÍNH */}
+                            <h1 className="mb-0 bread" style={{ color: 'white', fontSize: '3rem' }}>Destination</h1>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Search Form */}
-            <section className="ftco-section ftco-no-pb">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="search-wrap-1 ftco-animate">
-                                <form action="#" className="search-property-1">
-                                    <div className="row no-gutters">
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4 border-0">
-                                                <label>Destination</label>
-                                                <div className="form-field">
-                                                    <div className="icon"><span className="fa fa-search"></span></div>
-                                                    <input type="text" className="form-control" placeholder="Search place" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Check-in date</label>
-                                                <div className="form-field">
-                                                    <div className="icon"><span className="fa fa-calendar"></span></div>
-                                                    <input type="text" className="form-control checkin_date" placeholder="Check In Date" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Check-out date</label>
-                                                <div className="form-field">
-                                                    <div className="icon"><span className="fa fa-calendar"></span></div>
-                                                    <input type="text" className="form-control checkout_date" placeholder="Check Out Date" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group p-4">
-                                                <label>Price Limit</label>
-                                                <div className="form-field">
-                                                    <div className="select-wrap">
-                                                        <div className="icon"><span className="fa fa-chevron-down"></span></div>
-                                                        <select className="form-control">
-                                                            {["$5,000", "$10,000", "$50,000", "$100,000", "$200,000", "$300,000", "$400,000", "$500,000", "$1,000,000", "$2,000,000"].map((p, i) => (
-                                                                <option key={i}>{p}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg d-flex">
-                                            <div className="form-group d-flex w-100 border-0">
-                                                <div className="form-field w-100 align-items-center d-flex">
-                                                    <input type="submit" value="Search" className="align-self-stretch form-control btn btn-primary" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Destination List */}
+            {/* Danh sách Tour (Sử dụng cấu trúc đã sửa lỗi) */}
             <section className="ftco-section">
                 <div className="container">
-                    <div className="row">
-                        {destinations.map((d) => (
-                            <div className="col-md-4 ftco-animate" key={d.id}>
-                                <div className="project-wrap">
-                                    <a href="#" className="img" style={{ backgroundImage: `url(${d.img})` }}>
-                                        <span className="price">{d.price}</span>
-                                    </a>
-                                    <div className="text p-4">
-                                        <span className="days">{d.days}</span>
-                                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                        <p className="location"><span className="fa fa-map-marker"></span> {d.location}</p>
-                                        <ul>
-                                            <li><span className="flaticon-shower"></span>2</li>
-                                            <li><span className="flaticon-king-size"></span>3</li>
-                                            <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                        </ul>
+                    {loading ? (
+                        <p className="text-center w-100 mt-5">
+                            <FaSpinner className="fa-spin" /> Đang tải Tour...
+                        </p>
+                    ) : error ? (
+                        <p className="text-center w-100 mt-5" style={{ color: "red" }}>
+                            {error}
+                        </p>
+                    ) : tours.length === 0 ? (
+                        <p className="text-center w-100 mt-5">Không có Tour nào.</p>
+                    ) : (
+                        <div className="row">
+                            {tours.map((tour, index) => (
+                                <div className="col-md-4" key={tour._id || index} style={{ marginBottom: '30px' }}>
+
+                                    <div style={{ border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden', position: 'relative' }}>
+
+                                        {/* Hiển thị ảnh Tour: Giả sử trường ảnh trong DB là 'img' */}
+                                        <img
+                                            src={tour.img || "images/default_tour.jpg"}
+                                            alt={tour.tour_name}
+                                            style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                                        />
+
+                                        {/* Hiển thị giá */}
+                                        <span className="price" style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '3px' }}>
+                                            ${tour.price || 0}
+                                        </span>
+
+                                        <div className="text p-4">
+                                            {/* Hiển thị Tên Tour */}
+                                            <h3>{tour.tour_name || "Tour không tên"}</h3>
+
+                                            {/* 💡 ĐÃ THÊM: Description */}
+                                            <p style={{ fontSize: '14px', marginBottom: '10px', color: '#666' }}>
+                                                {tour.description ? `${tour.description.substring(0, 100)}...` : 'No description available.'}
+                                            </p>
+
+                                            <p className="location">
+                                                <span className="fa fa-map-marker"></span> {tour.country || "Không xác định"}
+                                            </p>
+
+                                            <p>Thời lượng: {tour.duration_hours || tour.duration} Days</p>
+
+                                            {/* 💡 ĐÃ THÊM: Available Seats */}
+                                            <p style={{ fontWeight: 'bold', color: tour.available_seats > 5 ? 'gray' : 'red' }}>
+                                                Seats: {tour.available_seats || 0}
+                                            </p>
+
+                                            <p style={{ fontSize: '12px', color: '#666' }}>ID: {tour.tour_id}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Pagination */}
-                    <div className="row mt-5">
-                        <div className="col text-center">
-                            <div className="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li className="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
+                            ))}
                         </div>
-                    </div>
+                    )}
                 </div>
             </section>
         </div>
