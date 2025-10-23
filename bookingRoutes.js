@@ -16,6 +16,19 @@ router.post("/bookings", async (req, res, next) => {
         if (!name || !email || !tour || !date || !guests) {
             return res.status(400).json({ message: "Vui lòng điền đầy đủ thông tin bắt buộc." });
         }
+        const bookingDate = new Date(date);
+        const currentDate = new Date();
+
+        // Chuẩn hóa: Đặt giờ, phút, giây, mili giây về 0 để chỉ so sánh ngày
+        bookingDate.setHours(0, 0, 0, 0);
+        currentDate.setHours(0, 0, 0, 0);
+
+        if (bookingDate < currentDate) {
+            return res.status(400).json({
+                message: "Không thể đặt phòng vào ngày trong quá khứ. Vui lòng chọn ngày hiện tại hoặc tương lai.",
+                field: "date"
+            });
+        }
 
         // 3. Tạo một booking mới dựa trên Model
         const newBooking = new TourBooking({
