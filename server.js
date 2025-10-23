@@ -5,6 +5,9 @@ import cors from "cors";
 import hotelRoutes from "./routes/hotelRoutes.js";
 import tourRoutes from "./routes/tourRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
+import hotelbookingRoutes from "./routes/hotelbookingRoutes.js";
+
 
 dotenv.config();
 
@@ -38,6 +41,9 @@ mongoose.connection.on("disconnected", () =>
 app.use("/api", hotelRoutes);
 app.use("/api", tourRoutes);
 app.use("/api", authRoutes);
+app.use("/api", bookingRoutes);
+app.use("/api", hotelbookingRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🌍 Server running on port ${PORT}`));
