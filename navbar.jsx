@@ -67,7 +67,12 @@ const Navbar = () => {
             </li>
             <li className={`nav-item ${isActive("/booking")}`}>
               <Link to="/booking" className="nav-link">
-                Booking
+                Tour Booking
+              </Link>
+            </li>
+            <li className={`nav-item ${isActive("/hotel-booking")}`}>
+              <Link to="/hotel-booking" className="nav-link">
+                Hotel Booking
               </Link>
             </li>
             <li className={`nav-item ${isActive("/destination")}`}>
