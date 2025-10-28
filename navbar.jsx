@@ -118,6 +118,10 @@ const Navbar = () => {
                   <Link className="dropdown-item" to="/profile">
                     Profile
                   </Link>
+                  {/* 💡 ĐÃ THÊM: Mục Payment */}
+                  <Link className="dropdown-item" to="/payment">
+                    Payment
+                  </Link>
                   <div className="dropdown-divider"></div>
                   <button className="dropdown-item" onClick={handleLogout}>
                     Logout

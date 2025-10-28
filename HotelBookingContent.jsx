@@ -56,57 +56,34 @@ const HotelBookingContent = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = async (e) => { // 💡 Thêm async
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // 💡 Validation
         if (!formData.name || !formData.email || !formData.date || !formData.room_data) {
             alert("Please fill all required fields, including selecting a room!");
             return;
         }
 
-        // 💡 Chuẩn bị dữ liệu để gửi đi
-        const selectedRoom = JSON.parse(formData.room_data);
-        const bookingData = {
-            name: formData.name,
-            email: formData.email,
-            guests: formData.guests,
-            date: formData.date,
-            room_name: selectedRoom.room_name, // Lấy từ object
-            hotel_id: selectedRoom.hotel_id   // Lấy từ object
-        };
-
-        // 💡 Gửi dữ liệu đến API hotel-bookings
+        // 💡 Sửa: Không gọi /api/hotel-bookings, gọi /api/payment/create_hotel_payment
         try {
-            const response = await fetch("/api/hotel-bookings", { // 💡 API Endpoint mới
+            // (formData đã chứa: name, email, date, guests, room_data)
+            const response = await fetch("/api/payment/create_hotel_payment", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(bookingData), // Gửi dữ liệu đã xử lý
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
             const result = await response.json();
 
             if (!response.ok) {
-                throw new Error(result.message || "Không thể gửi booking phòng.");
+                throw new Error(result.message || "Không thể tạo link thanh toán.");
             }
 
-            // --- Thành công! ---
-            console.log("Hotel booking data saved:", result);
-            alert("Hotel booking submitted successfully!");
-
-            // --- Reset form ---
-            setFormData({
-                name: "",
-                email: "",
-                room_data: "",
-                guests: 1,
-                date: ""
-            });
+            // 💡 Thành công! Chuyển hướng người dùng đến VNPAY
+            window.location.href = result.paymentUrl;
 
         } catch (error) {
-            console.error("Lỗi khi submit hotel booking:", error);
+            console.error("Lỗi khi tạo thanh toán:", error);
             alert(`Error: ${error.message}`);
         }
     };

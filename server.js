@@ -7,7 +7,7 @@ import tourRoutes from "./routes/tourRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 import hotelbookingRoutes from "./routes/hotelbookingRoutes.js";
-
+import paymentRoutes from "./routes/paymentRoutes.js";
 
 dotenv.config();
 
@@ -43,7 +43,7 @@ app.use("/api", tourRoutes);
 app.use("/api", authRoutes);
 app.use("/api", bookingRoutes);
 app.use("/api", hotelbookingRoutes);
-
+app.use("/api", paymentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🌍 Server running on port ${PORT}`));

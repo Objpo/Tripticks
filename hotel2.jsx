@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-// 💡 CẢI TIẾN: Thay thế Link và các hook của Navbar bằng component Navbar thực tế
+// Giữ lại các hook cần thiết cho cả Navbar và Hotel2
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getHotels } from "../api/index"; // Giả định đường dẫn
+import { getHotels } from "../api/index";
 import { FaSpinner } from "react-icons/fa";
 
-// BẮT ĐẦU CODE NAVBAR THỰC TẾ
+// ==========================================================
+// BẮT ĐẦU CODE NAVBAR THỰC TẾ (GIỮ NGUYÊN)
+// ==========================================================
 const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -13,7 +15,6 @@ const Navbar = () => {
 
     // Kiểm tra token trong localStorage
     useEffect(() => {
-        // Sử dụng kiểm tra an toàn cho môi trường thực tế:
         const token = typeof window !== 'undefined' ? localStorage.getItem("token") : null;
         setIsLoggedIn(!!token);
     }, [location]);
@@ -31,7 +32,6 @@ const Navbar = () => {
 
     // Xử lý đăng xuất
     const handleLogout = () => {
-        // Sử dụng kiểm tra an toàn cho môi trường thực tế:
         if (typeof window !== 'undefined') {
             localStorage.removeItem("token");
         }
@@ -40,7 +40,6 @@ const Navbar = () => {
     };
 
     return (
-        // 💡 SỬA CSS CỐ ĐỊNH: Đảm bảo z-index cao và position fixed
         <nav
             className={`navbar navbar-expand-lg ftco_navbar ftco-navbar-light ${scrolled ? "scrolled" : ""}`}
             id="ftco-navbar"
@@ -122,34 +121,70 @@ const Navbar = () => {
         </nav>
     );
 };
+// ==========================================================
 // KẾT THÚC CODE NAVBAR THỰC TẾ
+// ==========================================================
 
+// ==========================================================
+// HOTEL2 - TRANG KẾT QUẢ TÌM KIẾM (ĐÃ SỬA LỖI TRÙNG LẶP)
+// ==========================================================
 const Hotel2 = () => {
+    const location = useLocation();
+
     const [hotels, setHotels] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("Tất cả Khách sạn"); // State hiển thị thông báo tìm kiếm
 
     useEffect(() => {
-        getHotels()
-            .then((data) => {
+        const fetchHotelsByQuery = async () => {
+            setLoading(true);
+            setError(null);
+
+            // 1. Phân tích Query String từ URL
+            const params = new URLSearchParams(location.search);
+            const destination = params.get('destination') || "";
+            const checkin = params.get('checkin') || "";
+            const checkout = params.get('checkout') || "";
+            const price = params.get('price') || "";
+
+            const searchParams = { destination, checkin, checkout, price };
+
+            // 💡 THÊM DEBUG LOG CỰC KỲ QUAN TRỌNG
+            console.log("Hotel2 sending searchParams:", searchParams);
+
+            // Cập nhật thông báo hiển thị dựa trên tham số tìm kiếm
+            const displayQuery = destination
+                ? `Kết quả tìm kiếm tại: "${destination}"`
+                : "Tất cả Khách sạn";
+            setSearchQuery(displayQuery);
+
+            try {
+                // 2. GỌI API: Hàm getHotels phải nhận searchParams và gửi chúng đi
+                const data = await getHotels(searchParams);
+
                 if (Array.isArray(data)) {
                     setHotels(data);
                 } else {
                     setHotels([]);
-                    setError("Dữ liệu từ API không phải là mảng.");
+                    setError("Dữ liệu từ API không hợp lệ.");
                 }
-                setLoading(false);
-            })
-            .catch((err) => {
+            } catch (err) {
                 console.error("Lỗi khi lấy dữ liệu khách sạn:", err);
-                setError(err.message);
+                setError(err.message || "Đã xảy ra lỗi khi kết nối máy chủ.");
+                setHotels([]);
+            } finally {
                 setLoading(false);
-            });
-    }, []);
+            }
+        };
+
+        fetchHotelsByQuery();
+
+        // Chạy lại mỗi khi chuỗi tìm kiếm trên URL thay đổi
+    }, [location.search]);
 
     return (
         <div>
-            {/* 💡 BƯỚC 1: RENDER NAVBAR NGAY TẠI ĐÂY */}
             <Navbar />
 
             {/* Hero Section */}
@@ -162,7 +197,6 @@ const Hotel2 = () => {
                     backgroundPosition: 'center center',
                     backgroundSize: 'cover',
                     position: 'relative',
-                    // ĐÃ SỬA: THÊM PADDING AN TOÀN VÀO HERO SECTION
                     paddingTop: '70px',
                 }}
             >
@@ -176,59 +210,40 @@ const Hotel2 = () => {
                                 </span>{" "}
                                 <span>Hotel <i className="fa fa-chevron-right"></i></span>
                             </p>
-                            <h1 className="mb-0 bread" style={{ color: 'white' }}>Hotel</h1>
+                            <h1 className="mb-0 bread" style={{ color: 'white' }}>{searchQuery}</h1>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            {/* Danh sách Khách sạn */}
+            {/* Danh sách Khách sạn (Kết quả tìm kiếm) */}
             <section className="ftco-section">
                 <div className="container">
+                    <h2 className="mb-4">{searchQuery}</h2>
+
                     {loading ? (
                         <p className="text-center w-100 mt-5">
-                            <FaSpinner className="fa-spin" /> Đang tải...
+                            <FaSpinner className="fa-spin" /> Đang tải kết quả...
                         </p>
                     ) : error ? (
                         <p className="text-center w-100 mt-5" style={{ color: "red" }}>
                             {error}
                         </p>
                     ) : hotels.length === 0 ? (
-                        <p className="text-center w-100 mt-5">Không có khách sạn nào.</p>
+                        <p className="text-center w-100 mt-5">Không tìm thấy khách sạn nào phù hợp với tiêu chí tìm kiếm của bạn.</p>
                     ) : (
                         <div className="row">
                             {hotels.map((room, index) => (
                                 <div className="col-md-4" key={room._id || index} style={{ marginBottom: '30px' }}>
                                     <div style={{ border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden', position: 'relative' }}>
-                                        <img
-                                            src={room.hotel_img || "images/default.jpg"}
-                                            alt={room.room_name}
-                                            style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-                                        />
-
-                                        <span className="price" style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '3px' }}>
-                                            ${room.price_per_night || 0}/đêm
-                                        </span>
-
+                                        <img src={room.hotel_img || "images/default.jpg"} alt={room.room_name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                                         <div className="text p-4">
                                             <h3>{room.room_name || "Phòng không tên"}</h3>
                                             <p style={{ fontWeight: 'bold' }}>{room.hotel_name || "Khách sạn không tên"}</p>
-                                            <p className="location">
-                                                <span className="fa fa-map-marker"></span> {room.country || "Không xác định"}
-                                            </p>
+                                            <p className="location"><span className="fa fa-map-marker"></span> {room.country || "Không xác định"}</p>
                                             <p>Loại: {room.type || "Không xác định"}</p>
-
-                                            {/* 💡 ĐÃ THÊM: Số khách tối đa */}
-                                            <p style={{ fontSize: '14px' }}>
-                                                Tối đa: {room.max_guests || 0} khách
-                                            </p>
-
-                                            {/* 💡 ĐÃ THÊM: Trạng thái còn trống */}
-                                            <p style={{ fontWeight: 'bold', color: room.available ? 'green' : 'red' }}>
-                                                Trạng thái: {room.available ? 'Còn trống' : 'Đã đặt'}
-                                            </p>
-
+                                            <p style={{ fontSize: '14px' }}>Tối đa: {room.max_guests || 0} khách</p>
+                                            <p style={{ fontWeight: 'bold', color: room.available ? 'green' : 'red' }}>Trạng thái: {room.available ? 'Còn trống' : 'Đã đặt'}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -13,6 +13,9 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import BookingPage from "./pages/BookingPage";
 import HotelBookingPage from "./pages/HotelBookingPage"; // 💡 1. IMPORT TRANG MỚI
+import PaymentSuccess from './pages/PaymentSuccess'; // 💡 THÊM MỚI
+import PaymentFailure from './pages/PaymentFailure';
+import HotelResultsPage from './pages/HotelResultsPage';
 
 function App() {
   useEffect(() => {
@@ -31,8 +34,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/booking" element={<BookingPage />} />
-
-      {/* 💡 2. THÊM ROUTE CHO TRANG BOOKING KHÁCH SẠN */}
+      <Route path="/payment-success" element={<PaymentSuccess />} />
+      <Route path="/payment-failure" element={<PaymentFailure />} />
+      <Route path="/hotels" element={<HotelResultsPage />} />
       <Route path="/hotel-booking" element={<HotelBookingPage />} />
 
     </Routes>

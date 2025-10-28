@@ -24,7 +24,7 @@ const BookingContent = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        tour: "", // 💡 State này sẽ lưu tour_name được chọn
+        tour_data: "", // 💡 State này sẽ lưu tour_name được chọn
         guests: 1,
         date: ""
     });
@@ -58,48 +58,35 @@ const BookingContent = () => {
 
     // ... (bên trên vẫn giữ nguyên)
 
-    const handleSubmit = async (e) => { // 💡 1. Thêm "async"
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Kiểm tra validation vẫn giữ nguyên
-        if (!formData.name || !formData.email || !formData.date || !formData.tour) {
+        // 💡 Validation (thêm tour_data)
+        if (!formData.name || !formData.email || !formData.date || !formData.tour_data) {
             alert("Please fill all required fields, including selecting a tour!");
             return;
         }
 
-        // 💡 2. Gửi dữ liệu đến backend
+        // 💡 Sửa: Không gọi /api/bookings nữa, gọi /api/payment/create_tour_payment
         try {
-            const response = await fetch("/api/bookings", {
+            // (formData đã chứa: name, email, date, guests, tour_data)
+            const response = await fetch("/api/payment/create_tour_payment", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData), // Gửi state của form đi
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
             const result = await response.json();
 
             if (!response.ok) {
-                // Nếu server trả về lỗi (vd: 400, 500)
-                throw new Error(result.message || "Không thể gửi booking.");
+                throw new Error(result.message || "Không thể tạo link thanh toán.");
             }
 
-            // 💡 3. Thành công!
-            console.log("Booking data saved:", result);
-            alert("Booking submitted successfully!"); // Thay thông báo cũ
-
-            // 4. Reset form (giữ nguyên)
-            setFormData({
-                name: "",
-                email: "",
-                tour: "",
-                guests: 1,
-                date: ""
-            });
+            // 💡 Thành công! Chuyển hướng người dùng đến VNPAY
+            window.location.href = result.paymentUrl;
 
         } catch (error) {
-            // 💡 5. Xử lý lỗi
-            console.error("Lỗi khi submit booking:", error);
+            console.error("Lỗi khi tạo thanh toán:", error);
             alert(`Error: ${error.message}`);
         }
     };
@@ -167,14 +154,14 @@ const BookingContent = () => {
                                     <div className="form-group">
                                         <select
                                             className="form-control"
-                                            name="tour"
+                                            name="tour_data"
                                             value={formData.tour}
                                             onChange={handleChange}
                                             required // 💡 Thêm required
                                         >
                                             <option value="">-- Chọn Tour --</option>
                                             {tours.map((tour) => (
-                                                <option key={tour.tour_id || tour._id} value={tour.tour_name}>
+                                                <option key={tour.tour_id || tour._id} value={JSON.stringify(tour)}>
                                                     {/* Hiển thị tên tour và quốc gia từ model Tour.js */}
                                                     {tour.tour_name} ({tour.country})
                                                 </option>
