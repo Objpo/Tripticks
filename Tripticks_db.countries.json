@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687a"
+  },
+  "name": "Vietnam",
+  "code": "VN",
+  "continent": "Asia",
+  "tour_highlights": [
+    "Saigon City Tour",
+    "Halong Bay Day Trip",
+    "Cu Chi Tunnels Half-Day"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687b"
+  },
+  "name": "Thailand",
+  "code": "TH",
+  "continent": "Asia",
+  "tour_highlights": [
+    "Bangkok Temple Tour",
+    "Phuket Island Hopping",
+    "Chiang Mai Elephant Sanctuary"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687c"
+  },
+  "name": "Japan",
+  "code": "JP",
+  "continent": "Asia",
+  "tour_highlights": [
+    "Tokyo Skytree Visit",
+    "Kyoto Geisha District",
+    "Hiroshima Peace Memorial"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687d"
+  },
+  "name": "France",
+  "code": "FR",
+  "continent": "Europe",
+  "tour_highlights": [
+    "Paris Eiffel Tower Tour",
+    "Louvre Museum Visit",
+    "Provence Lavender Fields"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687e"
+  },
+  "name": "United States",
+  "code": "US",
+  "continent": "North America",
+  "tour_highlights": [
+    "New York Statue of Liberty",
+    "Grand Canyon Adventure",
+    "Las Vegas Strip Tour"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e0143687f"
+  },
+  "name": "Australia",
+  "code": "AU",
+  "continent": "Oceania",
+  "tour_highlights": [
+    "Sydney Opera House Tour",
+    "Great Barrier Reef Diving",
+    "Melbourne Wine Tasting"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e01436880"
+  },
+  "name": "Brazil",
+  "code": "BR",
+  "continent": "South America",
+  "tour_highlights": [
+    "Rio Carnival Experience",
+    "Amazon Rainforest Tour",
+    "Iguazu Falls Visit"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e01436881"
+  },
+  "name": "Italy",
+  "code": "IT",
+  "continent": "Europe",
+  "tour_highlights": [
+    "Rome Colosseum Tour",
+    "Venice Gondola Ride",
+    "Florence Uffizi Gallery"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e01436882"
+  },
+  "name": "India",
+  "code": "IN",
+  "continent": "Asia",
+  "tour_highlights": [
+    "Taj Mahal Sunrise Tour",
+    "Jaipur Amber Fort",
+    "Varanasi Ganges Ritual"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68de467800f75e7e01436883"
+  },
+  "name": "South Korea",
+  "code": "KR",
+  "continent": "Asia",
+  "tour_highlights": [
+    "Seoul K-Pop Experience",
+    "Busan Seafront Walk",
+    "Jeju Island Nature Tour"
+  ]
+}]

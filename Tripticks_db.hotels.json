@@ -1,0 +1,480 @@
+[{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb5"
+  },
+  "hotel_name": "Saigon Grand Hotel",
+  "country": "Vietnam",
+  "image_url": "https://www.bangkokpalace.com/wp-content/uploads/2024/10/superior-double-1.webp",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb6"
+  },
+  "hotel_name": "Hanoi Serenity Hotel",
+  "country": "Vietnam",
+  "image_url": "https://agoda.com/images/hanoi-serenity-hotel-room.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb7"
+  },
+  "hotel_name": "Bangkok Palace Hotel",
+  "country": "Thailand",
+  "image_url": "https://agoda.com/images/bangkok-palace-hotel-lobby.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb8"
+  },
+  "hotel_name": "Chiang Mai Resort",
+  "country": "Thailand",
+  "image_url": "https://picsum.photos/id/191/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddb9"
+  },
+  "hotel_name": "Tokyo Bay Hotel",
+  "country": "Japan",
+  "image_url": "https://hyatt.com/images/tokyo-bay-hotel-view.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddba"
+  },
+  "hotel_name": "Kyoto Garden Inn",
+  "country": "Japan",
+  "image_url": "https://picsum.photos/id/117/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbb"
+  },
+  "hotel_name": "Paris Elegance Hotel",
+  "country": "France",
+  "image_url": "https://artushotel.com/images/paris-elegance-hotel-facade.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbc"
+  },
+  "hotel_name": "Nice Riviera Resort",
+  "country": "France",
+  "image_url": "https://picsum.photos/id/304/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbd"
+  },
+  "hotel_name": "New York Central Hotel",
+  "country": "United States",
+  "image_url": "https://ritzcarlton.com/images/new-york-central-hotel-suite.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbe"
+  },
+  "hotel_name": "Los Angeles Sunset Inn",
+  "country": "United States",
+  "image_url": "https://picsum.photos/id/163/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddbf"
+  },
+  "hotel_name": "Sydney Harbor Hotel",
+  "country": "Australia",
+  "image_url": "https://booking.com/images/sydney-harbor-hotel-harbor-view.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc0"
+  },
+  "hotel_name": "Melbourne Cozy Stay",
+  "country": "Australia",
+  "image_url": "https://booking.com/images/melbourne-cozy-stay-apartment.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc1"
+  },
+  "hotel_name": "Rio Paradise Hotel",
+  "country": "Brazil",
+  "image_url": "https://picsum.photos/id/212/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc2"
+  },
+  "hotel_name": "Sao Paulo Comfort Inn",
+  "country": "Brazil",
+  "image_url": "https://picsum.photos/id/23/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc3"
+  },
+  "hotel_name": "Rome Imperial Hotel",
+  "country": "Italy",
+  "image_url": "https://jet2holidays.com/images/rome-imperial-hotel-antique.jpg",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc4"
+  },
+  "hotel_name": "Venice Lagoon Resort",
+  "country": "Italy",
+  "image_url": "https://picsum.photos/id/261/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc5"
+  },
+  "hotel_name": "Delhi Heritage Hotel",
+  "country": "India",
+  "image_url": "https://picsum.photos/id/350/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc6"
+  },
+  "hotel_name": "Mumbai Ocean View",
+  "country": "India",
+  "image_url": "https://picsum.photos/id/145/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc7"
+  },
+  "hotel_name": "Seoul Grand Stay",
+  "country": "South Korea",
+  "image_url": "https://picsum.photos/id/10/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f1bf11c6e4846b8c91ddc8"
+  },
+  "hotel_name": "Busan Beach Hotel",
+  "country": "South Korea",
+  "image_url": "https://picsum.photos/id/295/800/600",
+  "rooms": [
+    {
+      "room_name": "Deluxe Room",
+      "type": "Deluxe",
+      "price_per_night": 120,
+      "max_guests": 3,
+      "available": true
+    },
+    {
+      "room_name": "Suite Room",
+      "type": "Suite",
+      "price_per_night": 180,
+      "max_guests": 4,
+      "available": true
+    }
+  ]
+}]

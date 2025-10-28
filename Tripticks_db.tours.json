@@ -1,0 +1,238 @@
+[{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436887"
+  },
+  "tour_id": "TR001",
+  "tour_name": "Saigon City Tour",
+  "country": "Vietnam",
+  "description": "Explore the vibrant streets of Ho Chi Minh City, including Notre-Dame Basilica and Ben Thanh Market.",
+  "price": 50,
+  "available_seats": 20,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Saigon Grand Hotel",
+    "Hanoi Serenity Hotel"
+  ],
+  "tour_duration": "4 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436888"
+  },
+  "tour_id": "TR002",
+  "tour_name": "Halong Bay Day Trip",
+  "country": "Vietnam",
+  "description": "A scenic boat tour through the stunning limestone islands of Halong Bay.",
+  "price": 75,
+  "available_seats": 15,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Saigon Grand Hotel",
+    "Hanoi Serenity Hotel"
+  ],
+  "tour_duration": "5 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436889"
+  },
+  "tour_id": "TR003",
+  "tour_name": "Bangkok Temple Tour",
+  "country": "Thailand",
+  "description": "Visit the Grand Palace and Wat Pho, home of the Reclining Buddha.",
+  "price": 60,
+  "available_seats": 25,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Bangkok Palace Hotel",
+    "Chiang Mai Resort"
+  ],
+  "tour_duration": "4 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688a"
+  },
+  "tour_id": "TR004",
+  "tour_name": "Phuket Island Hopping",
+  "country": "Thailand",
+  "description": "Hop between Phuket's beautiful islands, including Phi Phi and Phang Nga Bay.",
+  "price": 90,
+  "available_seats": 18,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Bangkok Palace Hotel",
+    "Chiang Mai Resort"
+  ],
+  "tour_duration": "7 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688b"
+  },
+  "tour_id": "TR005",
+  "tour_name": "Tokyo Skytree Visit",
+  "country": "Japan",
+  "description": "Enjoy panoramic views of Tokyo from the Skytree observation deck.",
+  "price": 40,
+  "available_seats": 30,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Tokyo Bay Hotel",
+    "Kyoto Garden Inn"
+  ],
+  "tour_duration": "3 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688c"
+  },
+  "tour_id": "TR006",
+  "tour_name": "Kyoto Geisha District",
+  "country": "Japan",
+  "description": "Explore the historic Gion district and learn about traditional Geisha culture.",
+  "price": 55,
+  "available_seats": 22,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Tokyo Bay Hotel",
+    "Kyoto Garden Inn"
+  ],
+  "tour_duration": "4 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688d"
+  },
+  "tour_id": "TR007",
+  "tour_name": "Paris Eiffel Tower Tour",
+  "country": "France",
+  "description": "Ascend the Eiffel Tower and enjoy breathtaking views of Paris.",
+  "price": 70,
+  "available_seats": 25,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Paris Elegance Hotel",
+    "Nice Riviera Resort"
+  ],
+  "tour_duration": "3 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688e"
+  },
+  "tour_id": "TR008",
+  "tour_name": "Louvre Museum Visit",
+  "country": "France",
+  "description": "Discover masterpieces like the Mona Lisa at the world-famous Louvre.",
+  "price": 45,
+  "available_seats": 20,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Paris Elegance Hotel",
+    "Nice Riviera Resort"
+  ],
+  "tour_duration": "4 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e0143688f"
+  },
+  "tour_id": "TR009",
+  "tour_name": "New York Statue of Liberty",
+  "country": "United States",
+  "description": "Ferry ride to Liberty Island with access to the Statue of Liberty pedestal.",
+  "price": 65,
+  "available_seats": 18,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "New York Central Hotel",
+    "Los Angeles Sunset Inn"
+  ],
+  "tour_duration": "5 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436890"
+  },
+  "tour_id": "TR010",
+  "tour_name": "Sydney Opera House Tour",
+  "country": "Australia",
+  "description": "Guided tour of the iconic Sydney Opera House and its architecture.",
+  "price": 50,
+  "available_seats": 30,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Sydney Harbor Hotel",
+    "Melbourne Cozy Stay"
+  ],
+  "tour_duration": "7 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436891"
+  },
+  "tour_id": "TR011",
+  "tour_name": "Rio Carnival Experience",
+  "country": "Brazil",
+  "description": "Immerse in the vibrant Rio Carnival with samba performances and parades.",
+  "price": 100,
+  "available_seats": 15,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Rio Paradise Hotel",
+    "Sao Paulo Comfort Inn"
+  ],
+  "tour_duration": "6 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436892"
+  },
+  "tour_id": "TR012",
+  "tour_name": "Rome Colosseum Tour",
+  "country": "Italy",
+  "description": "Explore the ancient Roman Colosseum and its fascinating history.",
+  "price": 60,
+  "available_seats": 22,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Rome Imperial Hotel",
+    "Venice Lagoon Resort"
+  ],
+  "tour_duration": "5 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436893"
+  },
+  "tour_id": "TR013",
+  "tour_name": "Taj Mahal Sunrise Tour",
+  "country": "India",
+  "description": "Witness the Taj Mahal at sunrise for a magical experience.",
+  "price": 70,
+  "available_seats": 20,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Delhi Heritage Hotel",
+    "Mumbai Ocean View"
+  ],
+  "tour_duration": "3 days"
+},
+{
+  "_id": {
+    "$oid": "68de47b000f75e7e01436894"
+  },
+  "tour_id": "TR014",
+  "tour_name": "Seoul K-Pop Experience",
+  "country": "South Korea",
+  "description": "Visit K-Pop studios and learn about Korean pop culture.",
+  "price": 45,
+  "available_seats": 25,
+  "last_updated": "2025-10-02T16:35:00+07:00",
+  "available_hotels": [
+    "Seoul Grand Stay",
+    "Busan Beach Hotel"
+  ],
+  "tour_duration": "7 days"
+}]

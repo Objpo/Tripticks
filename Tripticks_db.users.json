@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "68f1ace529e6b689b50f15c2"
+  },
+  "name": "Gia Huy",
+  "email": "gh17012020@gmail.com",
+  "password": "$2y$12$yVoJdHu96NRaQeGtpaI2munkMFua2xGru6f83/CPSSZtsEH9XE8UO",
+  "updated_at": {
+    "$date": "2025-10-17T02:41:41.202Z"
+  },
+  "created_at": {
+    "$date": "2025-10-17T02:41:41.202Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f7352bcf0faa2eae0ae3e2"
+  },
+  "name": "Võ Khánh Huy",
+  "email": "vokhanhhuy709@gmail.com",
+  "password": "$2y$12$GyqvUYyOOP83fT05OQGn0O2JURY.HmglHtmgJEzo222o3PRap5h2.",
+  "updated_at": {
+    "$date": "2025-10-21T07:24:27.638Z"
+  },
+  "created_at": {
+    "$date": "2025-10-21T07:24:27.638Z"
+  }
+}]

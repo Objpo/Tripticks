@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "68f1a2bc67c90c293c08a4a2"
+  },
+  "migration": "0001_01_01_000000_create_users_table",
+  "batch": 1
+},
+{
+  "_id": {
+    "$oid": "68f1a2bc67c90c293c08a4a3"
+  },
+  "migration": "0001_01_01_000001_create_cache_table",
+  "batch": 1
+},
+{
+  "_id": {
+    "$oid": "68f1a2bd67c90c293c08a4a4"
+  },
+  "migration": "0001_01_01_000002_create_jobs_table",
+  "batch": 1
+}]
