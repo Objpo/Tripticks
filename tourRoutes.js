@@ -1,13 +1,10 @@
 import express from "express";
-// 💡 IMPORT MODEL CHÍNH XÁC
+
 import Tour from "../models/Tour.js";
 
 const router = express.Router();
 
-// -------------------------------------------------------------------
-// LẤY TẤT CẢ CÁC TOUR/DESTINATION
-// Endpoint: GET /api/tours
-// -------------------------------------------------------------------
+
 router.get("/tours", async (req, res, next) => {
     try {
         // Tìm tất cả Tour
@@ -26,7 +23,6 @@ router.get("/tours", async (req, res, next) => {
     }
 });
 
-// 💡 LƯU Ý: Frontend component Destination2.jsx gọi '/api/tours', 
-// nên route trong file này phải là '/tours' khi được gắn vào '/api' trong server.js.
+
 
 export default router;
