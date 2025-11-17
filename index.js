@@ -1,55 +1,43 @@
 import axios from "axios";
 
-// Tạo instance Axios với cấu hình mặc định
+
 const api = axios.create({
-    baseURL: "/api", // Sử dụng proxy để kết nối tới Express
+    baseURL: "/api", 
     timeout: 30000,
     headers: {
         "Content-Type": "application/json",
     },
 });
 
-// Hàm trợ giúp để lấy token một cách an toàn
+
 const getToken = () => {
     return typeof window !== 'undefined' ? localStorage.getItem("token") : null;
 };
 
-// Hàm trợ giúp để tạo Authorization Header
+
 const getAuthHeaders = () => {
     const token = getToken();
     return token ? { Authorization: `Bearer ${token}` } : {};
 };
 
-// ---------------------------------------------------------------------
-// 1. CHỨC NĂNG LẤY DỮ LIỆU CHUNG (HOTEL & TOUR)
-// ---------------------------------------------------------------------
-
-// index.js (Phiên bản đã sửa)
 
 /**
  * Lấy danh sách phòng/khách sạn. Có thể truyền tham số để lọc/tìm kiếm.
- * @param {object} [params={}] - Các tham số tìm kiếm (destination, checkin, checkout, price).
+ * @param {object} [params={}] 
  */
-export const getHotels = async (params = {}) => { // PHẢI CÓ (params = {})
+export const getHotels = async (params = {}) => {
     try {
-        // 1. Dùng URLSearchParams để chuyển đổi params thành chuỗi
         const queryString = new URLSearchParams(params).toString();
-
-        // 2. Xây dựng endpoint với chuỗi truy vấn (nếu có)
         const endpoint = `/hotels${queryString ? `?${queryString}` : ''}`;
-
-        // Dòng debug bạn thấy đang bị lỗi, nó chỉ ra endpoint là /hotels
         console.log("Axios calling:", endpoint);
 
         const response = await api.get(endpoint);
-
-        // ... (phần xử lý phản hồi giữ nguyên)
         if (!Array.isArray(response.data)) {
-            // ...
+            
         }
         return response.data;
     } catch (error) {
-        // ...
+        
     }
 };
 
@@ -65,14 +53,10 @@ export const getTours = async () => {
     }
 };
 
-// ---------------------------------------------------------------------
-// 2. CHỨC NĂNG ĐẶT CHỖ (BOOKING)
-// ---------------------------------------------------------------------
 
-// Gửi Booking mới (POST /api/bookings/tour)
 export const postBooking = async (bookingData) => {
     try {
-        // Có thể thêm Authorization header nếu backend yêu cầu
+        
         const headers = getAuthHeaders();
         const response = await api.post("/bookings/tour", bookingData, { headers });
         return response.data;
@@ -82,11 +66,7 @@ export const postBooking = async (bookingData) => {
     }
 };
 
-// ---------------------------------------------------------------------
-// 3. CHỨC NĂNG THANH TOÁN & LỊCH SỬ (YÊU CẦU TOKEN)
-// ---------------------------------------------------------------------
 
-// Lấy lịch sử đặt chỗ (GET /api/payment/history)
 export const getBookingHistory = async () => {
     try {
         const headers = getAuthHeaders();
@@ -96,14 +76,14 @@ export const getBookingHistory = async () => {
 
         const response = await api.get("/payment/history", { headers });
 
-        return response.data; // Trả về object chứa { history: [...], totalDue: N }
+        return response.data; 
     } catch (error) {
         const errorMessage = error.response?.data?.message || "Lỗi khi lấy lịch sử đặt chỗ.";
         throw new Error(errorMessage);
     }
 };
 
-// Gửi yêu cầu xử lý thanh toán (POST /api/payment/process)
+
 export const postPaymentProcess = async (paymentData) => {
     try {
         const headers = getAuthHeaders();
@@ -119,11 +99,7 @@ export const postPaymentProcess = async (paymentData) => {
     }
 };
 
-// ---------------------------------------------------------------------
-// 4. CHỨC NĂNG XÁC THỰC (PROFILE)
-// ---------------------------------------------------------------------
 
-// Lấy thông tin user profile (GET /api/auth/profile)
 export const getProfile = async () => {
     try {
         const headers = getAuthHeaders();
