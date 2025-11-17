@@ -8,7 +8,7 @@ import {
     FaPlaneDeparture,
 } from "react-icons/fa";
 
-export default function ProfileContent() { // Đã đổi tên thành ProfileContent
+export default function ProfileContent() { 
     const [user, setUser] = useState(null);
     const [error, setError] = useState("");
 
@@ -58,35 +58,34 @@ export default function ProfileContent() { // Đã đổi tên thành ProfileCon
         );
 
     return (
-        // CONTAINER CĂN GIỮA TOÀN MÀN HÌNH (vẫn giữ nguyên để căn giữa khung profile)
+
         <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-sky-200 to-emerald-200">
 
-            {/* 🎯 KHUNG PROFILE CHÍNH DUY NHẤT VỚI BACKGROUND IMAGE VÀ OPACITY */}
+          
             <div
                 className="relative rounded-3xl shadow-2xl p-8 w-full text-center border border-sky-200 overflow-hidden"
                 style={{
                     maxWidth: 'absolute',
                     maxHeight: 'absolute',
-                    // Background image cho khung profile
-                    backgroundImage: 'url("https://wallpaperaccess.com/full/405435.jpg")', // Ảnh nền bạn cung cấp
+                
+                    backgroundImage: 'url("https://wallpaperaccess.com/full/405435.jpg")', 
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
-                {/* LỚP PHỦ NỀN TRONG SUỐT VÀ MỜ (Overlay) */}
+           
                 <div className="absolute inset-0 bg-black opacity-40 backdrop-blur-sm rounded-3xl z-0"></div>
 
-                {/* Tất cả các thành phần nội dung cần có z-index cao hơn overlay (z-0)
-                */}
+                
                 <div
-                    className="cursor-pointer" // Thêm con trỏ để báo hiệu nó có thể click
+                    className="cursor-pointer" 
                     onClick={() => {
                         window.location.href = 'http://localhost:5174/';
                     }}
                 >
                     <h1 className="text-4xl font-extrabold text-white mb-4 flex items-center gap-2">
                         <FaPlaneDeparture className="animate-bounce text-yellow-300" />
-                        {/* THÊM TIÊU ĐỀ NẾU CẦN, ví dụ: "Về Trang Chủ" */}
+                 
                     </h1>
                 
 
@@ -97,24 +96,26 @@ export default function ProfileContent() { // Đã đổi tên thành ProfileCon
                         
                     </p>
                 </div>
-                {/* Thông tin Chi tiết */}
-                <div className="relative z-10 text-left space-y-4 text-white">
+           
+                <div className="relative z-10 text-left text-white grid 
+               grid-cols-[auto_max-content_1fr] items-center 
+               gap-x-3 gap-y-4">
                     <p className="flex items-center gap-2">
                         <FaIdBadge className="text-sky-300" />
                         <span>
-                            <strong className="font-semibold">ID:</strong> {user._id}
+                            <strong className="font-semibold">ID:            </strong> {user._id}
                         </span>
                     </p>
                     <p className="flex items-center gap-2">
                         <FaUserCircle className="text-sky-300" />
                         <span>
-                            <strong className="font-semibold">Tên người dùng:</strong> {user.username}
+                            <strong className="font-semibold">Tên người dùng:             </strong> {user.username}
                         </span>
                     </p>
                     <p className="flex items-center gap-2">
                         <FaEnvelope className="text-sky-300" />
                         <span>
-                            <strong className="font-semibold">Email:</strong> {user.email}
+                            <strong className="font-semibold">Email:             </strong> {user.email}
                         </span>
                     </p>
                 </div>
