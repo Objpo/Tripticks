@@ -24,15 +24,15 @@ const BookingContent = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        tour_data: "", // 💡 State này sẽ lưu tour_name được chọn
+        tour_data: "", 
         guests: 1,
         date: ""
     });
 
-    // 💡 State mới để lưu danh sách tour từ API
+ 
     const [tours, setTours] = useState([]);
 
-    // 💡 useEffect mới để fetch danh sách tour
+ 
     useEffect(() => {
         const fetchTours = async () => {
             try {
@@ -42,34 +42,34 @@ const BookingContent = () => {
                     throw new Error("Không thể tải danh sách tour");
                 }
                 const data = await response.json();
-                setTours(data); // Lưu dữ liệu vào state
+                setTours(data); // Lưu dữ liệu 
             } catch (error) {
                 console.error("Lỗi khi fetch tour:", error);
             }
         };
 
         fetchTours();
-    }, []); // Mảng rỗng đảm bảo chỉ chạy 1 lần khi component mount
+    }, []); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // ... (bên trên vẫn giữ nguyên)
+  
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // 💡 Validation (thêm tour_data)
+    
         if (!formData.name || !formData.email || !formData.date || !formData.tour_data) {
             alert("Please fill all required fields, including selecting a tour!");
             return;
         }
 
-        // 💡 Sửa: Không gọi /api/bookings nữa, gọi /api/payment/create_tour_payment
+        
         try {
-            // (formData đã chứa: name, email, date, guests, tour_data)
+            
             const response = await fetch("/api/payment/create_tour_payment", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -82,7 +82,7 @@ const BookingContent = () => {
                 throw new Error(result.message || "Không thể tạo link thanh toán.");
             }
 
-            // 💡 Thành công! Chuyển hướng người dùng đến VNPAY
+            
             window.location.href = result.paymentUrl;
 
         } catch (error) {
@@ -126,7 +126,7 @@ const BookingContent = () => {
                             <div className="bg-white p-5 rounded shadow">
                                 <h2 className="mb-4 text-center">Book Your Tour</h2>
                                 <form className="contact-form" onSubmit={handleSubmit}>
-                                    {/* ... các trường Name và Email ... */}
+                               
                                     <div className="form-group">
                                         <input
                                             type="text"
@@ -150,26 +150,26 @@ const BookingContent = () => {
                                         />
                                     </div>
 
-                                    {/* 💡 THAY THẾ INPUT BẰNG SELECT (DROPDOWN) */}
+                               
                                     <div className="form-group">
                                         <select
                                             className="form-control"
                                             name="tour_data"
                                             value={formData.tour}
                                             onChange={handleChange}
-                                            required // 💡 Thêm required
+                                            required 
                                         >
                                             <option value="">-- Chọn Tour --</option>
                                             {tours.map((tour) => (
                                                 <option key={tour.tour_id || tour._id} value={JSON.stringify(tour)}>
-                                                    {/* Hiển thị tên tour và quốc gia từ model Tour.js */}
+                                                 
                                                     {tour.tour_name} ({tour.country})
                                                 </option>
                                             ))}
                                         </select>
                                     </div>
 
-                                    {/* ... các trường còn lại ... */}
+                                 
                                     <div className="form-group">
                                         <input
                                             type="number"
