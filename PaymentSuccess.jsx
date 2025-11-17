@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 const PaymentSuccess = () => {
     return (
         <div>
-            <Navbar />
             <div className="container" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="text-center" style={{ color: 'black' }}>
                     <h1 style={{ color: 'green' }}>Thanh toán thành công!</h1>
@@ -14,7 +13,6 @@ const PaymentSuccess = () => {
                     <Link to="/" className="btn btn-primary">Về Trang Chủ</Link>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };
