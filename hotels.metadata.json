@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"city":{"$numberInt":"1"}},"name":"city_1"}],"uuid":"97d883dc2905497f96e5e32860e8dc55","collectionName":"hotels","type":"collection"}
