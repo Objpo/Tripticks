@@ -12,8 +12,8 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import BookingPage from "./pages/BookingPage";
-import HotelBookingPage from "./pages/HotelBookingPage"; // 💡 1. IMPORT TRANG MỚI
-import PaymentSuccess from './pages/PaymentSuccess'; // 💡 THÊM MỚI
+import HotelBookingPage from "./pages/HotelBookingPage"; 
+import PaymentSuccess from './pages/PaymentSuccess'; 
 import PaymentFailure from './pages/PaymentFailure';
 import HotelResultsPage from './pages/HotelResultsPage';
 
