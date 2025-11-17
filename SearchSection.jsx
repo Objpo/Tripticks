@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-// Import useNavigate nếu bạn dùng React Router v6
+
 import { useNavigate } from "react-router-dom";
 
 const SearchSection = () => {
-    // 1. Khởi tạo navigate
+  
     const navigate = useNavigate();
 
     useEffect(() => {
         const $ = window.$ || window.jQuery;
         if ($) {
-            // datepicker (bootstrap-datepicker)
+           
             if ($.fn && $.fn.datepicker) {
                 $(".checkin_date").datepicker({ autoclose: true });
                 $(".checkout_date").datepicker({ autoclose: true });
             }
-            // timepicker (if used)
+           
             if ($.fn && $.fn.timepicker) {
                 $(".time_picker").timepicker();
             }
@@ -30,13 +30,13 @@ const SearchSection = () => {
 
         console.log("Search submitted:", obj);
 
-        // Lấy các tham số tìm kiếm từ form Hotel (kiểm tra thuộc tính name)
+       
         const destination = obj.hotel_destination || "";
         const checkin = obj.hotel_checkin || "";
         const checkout = obj.hotel_checkout || "";
-        const price = obj.hotel_price || ""; // Giới hạn giá
+        const price = obj.hotel_price || ""; 
 
-        // Tạo chuỗi truy vấn (query string)
+       
         const queryParams = new URLSearchParams();
         if (destination) queryParams.append("destination", destination);
         if (checkin) queryParams.append("checkin", checkin);
@@ -45,9 +45,9 @@ const SearchSection = () => {
 
         const queryString = queryParams.toString();
 
-        // Chuyển hướng người dùng đến trang kết quả tìm kiếm khách sạn
+    
         navigate(`/hotels?${queryString}`);
-        // Thay '/hotels' bằng đường dẫn trang kết quả của bạn nếu cần
+    
     };
 
     return (
@@ -64,9 +64,9 @@ const SearchSection = () => {
                                         role="tablist"
                                         aria-orientation="vertical"
                                     >
-                                        {/* Đảm bảo tab Hotel là active nếu muốn nó được tìm kiếm mặc định */}
+                                     
                                         <a
-                                            className="nav-link active" // Đặt 'active' tại đây nếu bạn muốn nó là tab mặc định
+                                            className="nav-link active" 
                                             id="v-pills-2-tab"
                                             data-toggle="pill"
                                             href="#v-pills-2"
@@ -81,19 +81,17 @@ const SearchSection = () => {
 
                                 <div className="col-md-12 tab-wrap">
                                     <div className="tab-content" id="v-pills-tabContent">
-                                        {/* .... Search Tour tab (giữ nguyên) .... */}
-
-                                        {/* ==== Hotel tab (Thêm 'active' nếu muốn là mặc định) ==== */}
+                                  
                                         <div
-                                            className="tab-pane fade show active" // Đặt 'show active' tại đây để nó hiển thị mặc định
+                                            className="tab-pane fade show active"
                                             id="v-pills-2"
                                             role="tabpanel"
                                             aria-labelledby="v-pills-performance-tab"
                                         >
-                                            {/* **Form Hotel đã được gán handleSubmit** */}
+                                           
                                             <form className="search-property-1" onSubmit={handleSubmit}>
                                                 <div className="row no-gutters">
-                                                    {/* Các input của form Hotel giữ nguyên */}
+                                                    
                                                     <div className="col-lg d-flex">
                                                         <div className="form-group p-4 border-0">
                                                             <label>Destination</label>
