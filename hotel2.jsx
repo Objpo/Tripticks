@@ -4,9 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getHotels } from "../api/index";
 import { FaSpinner } from "react-icons/fa";
 
-// ==========================================================
-// BẮT ĐẦU CODE NAVBAR THỰC TẾ (GIỮ NGUYÊN)
-// ==========================================================
+
 const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -121,27 +119,21 @@ const Navbar = () => {
         </nav>
     );
 };
-// ==========================================================
-// KẾT THÚC CODE NAVBAR THỰC TẾ
-// ==========================================================
 
-// ==========================================================
-// HOTEL2 - TRANG KẾT QUẢ TÌM KIẾM (ĐÃ SỬA LỖI TRÙNG LẶP)
-// ==========================================================
 const Hotel2 = () => {
     const location = useLocation();
 
     const [hotels, setHotels] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("Tất cả Khách sạn"); // State hiển thị thông báo tìm kiếm
+    const [searchQuery, setSearchQuery] = useState("Tất cả Khách sạn"); // thông báo tìm kiếm
 
     useEffect(() => {
         const fetchHotelsByQuery = async () => {
             setLoading(true);
             setError(null);
 
-            // 1. Phân tích Query String từ URL
+            // Query String từ URL
             const params = new URLSearchParams(location.search);
             const destination = params.get('destination') || "";
             const checkin = params.get('checkin') || "";
@@ -150,17 +142,16 @@ const Hotel2 = () => {
 
             const searchParams = { destination, checkin, checkout, price };
 
-            // 💡 THÊM DEBUG LOG CỰC KỲ QUAN TRỌNG
+            // debug
             console.log("Hotel2 sending searchParams:", searchParams);
 
-            // Cập nhật thông báo hiển thị dựa trên tham số tìm kiếm
             const displayQuery = destination
-                ? `Kết quả tìm kiếm tại: "${destination}"`
-                : "Tất cả Khách sạn";
+                ? `${destination}`
+                : "All Hotels";
             setSearchQuery(displayQuery);
 
             try {
-                // 2. GỌI API: Hàm getHotels phải nhận searchParams và gửi chúng đi
+                // Gọi API với tham số tìm kiếm
                 const data = await getHotels(searchParams);
 
                 if (Array.isArray(data)) {
@@ -180,7 +171,6 @@ const Hotel2 = () => {
 
         fetchHotelsByQuery();
 
-        // Chạy lại mỗi khi chuỗi tìm kiếm trên URL thay đổi
     }, [location.search]);
 
     return (
@@ -216,7 +206,7 @@ const Hotel2 = () => {
                 </div>
             </section>
 
-            {/* Danh sách Khách sạn (Kết quả tìm kiếm) */}
+            {/* Hotel Listings Section */}
             <section className="ftco-section">
                 <div className="container">
                     <h2 className="mb-4">{searchQuery}</h2>
@@ -241,9 +231,10 @@ const Hotel2 = () => {
                                             <h3>{room.room_name || "Phòng không tên"}</h3>
                                             <p style={{ fontWeight: 'bold' }}>{room.hotel_name || "Khách sạn không tên"}</p>
                                             <p className="location"><span className="fa fa-map-marker"></span> {room.country || "Không xác định"}</p>
-                                            <p>Loại: {room.type || "Không xác định"}</p>
-                                            <p style={{ fontSize: '14px' }}>Tối đa: {room.max_guests || 0} khách</p>
-                                            <p style={{ fontWeight: 'bold', color: room.available ? 'green' : 'red' }}>Trạng thái: {room.available ? 'Còn trống' : 'Đã đặt'}</p>
+                                            <p>Type: {room.type || "Không xác định"}</p>
+                                            <p style={{ fontSize: '14px' }}>Max: {room.max_guests || 0} Seats</p>
+                                            <p style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '3px' }}>Price: {room.price_per_night ? room.price_per_night.toLocaleString() + " USD" : "Liên hệ"}</p>
+                                            <p style={{ fontWeight: 'bold', color: room.available ? 'green' : 'red' }}>Status: {room.available ? 'vacant' : 'has been booked'}</p>
                                         </div>
                                     </div>
                                 </div>
