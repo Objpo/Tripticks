@@ -3,15 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { getHotels } from "../api/index";
 import { FaSpinner } from "react-icons/fa";
 
-// Giả định component Navbar được định nghĩa và import.
-const Navbar = () => { /* ... Navbar JSX ... */ return (<div>Navbar Content</div>); }; // Placeholder
+
+const Navbar = () => { /* ... Navbar JSX ... */ return (<div>Navbar Content</div>); }; 
 
 const HotelResultsPage = () => {
     const location = useLocation();
     const [hotels, setHotels] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("Tất cả Khách sạn"); // State mặc định
+    const [searchQuery, setSearchQuery] = useState("Tất cả Khách sạn"); 
 
     useEffect(() => {
         const fetchHotelsByQuery = async () => {
@@ -27,9 +27,9 @@ const HotelResultsPage = () => {
 
             const searchParams = { destination, checkin, checkout, price };
 
-            // 💡 SỬA LỖI: Cập nhật thông báo hiển thị để bao gồm chuỗi tìm kiếm
+      
             const displayQuery = destination
-                ? `Kết quả tìm kiếm tại: "${destination}"` // Đã sửa chuỗi để bao gồm destination
+                ? `Kết quả tìm kiếm tại: "${destination}"` 
                 : "Tất cả Khách sạn";
             setSearchQuery(displayQuery);
 
@@ -55,10 +55,10 @@ const HotelResultsPage = () => {
 
     return (
         <div>
-            {/* 1. RENDER NAVBAR */}
+           
             <Navbar />
 
-            {/* 2. HERO SECTION: Chỉ hiển thị thông báo tìm kiếm */}
+          
             <section
                 className="hero-wrap hero-wrap-2"
                 style={{
@@ -81,17 +81,16 @@ const HotelResultsPage = () => {
                                 </span>{" "}
                                 <span>Hotel <i className="fa fa-chevron-right"></i></span>
                             </p>
-                            {/* TIÊU ĐỀ CHÍNH: Hiển thị chuỗi tìm kiếm */}
+                            
                             <h1 className="mb-0 bread" style={{ color: 'white' }}>{searchQuery}</h1>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 3. DANH SÁCH KHÁCH SẠN (KHÔNG CÓ H2 TRÙNG LẶP) */}
             <section className="ftco-section">
                 <div className="container">
-                    {/* KHÔNG CẦN H2 NÀO KHÁC VÌ TIÊU ĐỀ ĐÃ Ở HERO SECTION */}
+                  
 
                     {loading ? (
                         <p className="text-center w-100 mt-5">
