@@ -21,7 +21,7 @@ const Product = () => {
         },
         {
             img: "destination-2.jpg",
-            price: "$550/person",
+            price: "$250/person",
             days: "10 Days Tour",
             title: "Boracay Island",
             location: "Aklan, Philippines",
@@ -33,7 +33,7 @@ const Product = () => {
         },
         {
             img: "destination-3.jpg",
-            price: "$550/person",
+            price: "$300/person",
             days: "7 Days Tour",
             title: "El Nido Palawan",
             location: "Palawan, Philippines",
@@ -45,7 +45,7 @@ const Product = () => {
         },
         {
             img: "destination-4.jpg",
-            price: "$550/person",
+            price: "$300/person",
             days: "8 Days Tour",
             title: "Chocolate Hills",
             location: "Bohol, Philippines",
@@ -57,7 +57,7 @@ const Product = () => {
         },
         {
             img: "destination-5.jpg",
-            price: "$550/person",
+            price: "$200/person",
             days: "10 Days Tour",
             title: "Coron Island",
             location: "Palawan, Philippines",
@@ -69,7 +69,7 @@ const Product = () => {
         },
         {
             img: "destination-6.jpg",
-            price: "$550/person",
+            price: "$300/person",
             days: "7 Days Tour",
             title: "Siargao Island",
             location: "Surigao del Norte, Philippines",
@@ -127,13 +127,16 @@ const Product = () => {
                                             bottom: "12px",
                                             right: "12px",
                                             background: "transparent",
-                                            color: "#fff",
-                                            padding: "3px 8px",
+                                            color: "white",
+                                            padding: "5px 10px",
                                             fontSize: "35px",
                                             fontWeight: "500",
                                             borderRadius: "4px",
                                             opacity: 0.9,
                                             letterSpacing: "0.3px",
+                                            top : "10px",
+                                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+                                            
                                         }}
                                     >
                                         {item.price}
