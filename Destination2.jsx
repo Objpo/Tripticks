@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-// 💡 CẦN SỬ DỤNG useLocation, useNavigate cho Navbar
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getTours } from "../api/index"; // Sử dụng API client đã định nghĩa
+import { getTours } from "../api/index"; 
 import { FaSpinner } from "react-icons/fa";
 
-// BẮT ĐẦU CODE NAVBAR THỰC TẾ (Đã được tích hợp)
+
 const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // Kiểm tra token trong localStorage
+    
     useEffect(() => {
         const token = typeof window !== 'undefined' ? localStorage.getItem("token") : null;
         setIsLoggedIn(!!token);
     }, [location]);
 
-    // Hiệu ứng đổi nền khi cuộn
+   
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 150);
@@ -38,7 +38,7 @@ const Navbar = () => {
     };
 
     return (
-        // SỬA CSS CỐ ĐỊNH: Đảm bảo z-index cao và position fixed
+   
         <nav
             className={`navbar navbar-expand-lg ftco_navbar ftco-navbar-light ${scrolled ? "scrolled" : ""}`}
             id="ftco-navbar"
@@ -119,7 +119,7 @@ const Navbar = () => {
         </nav>
     );
 };
-// KẾT THÚC CODE NAVBAR THỰC TẾ
+
 
 
 const Destination2 = () => {
@@ -155,12 +155,12 @@ const Destination2 = () => {
                 className="hero-wrap hero-wrap-2"
                 style={{
                     backgroundImage: "url('images/bg_1.jpg')",
-                    height: '50vh', // Giữ chiều cao cố định
+                    height: '50vh', 
                     minHeight: '400px',
                     backgroundPosition: 'center center',
                     backgroundSize: 'cover',
                     position: 'relative',
-                    paddingTop: '70px', // Đệm để Navbar hiển thị
+                    paddingTop: '70px', 
                 }}
             >
                 <div className="overlay" style={{ opacity: 0.5 }}></div>
@@ -213,15 +213,15 @@ const Destination2 = () => {
                                         />
 
                                         {/* Hiển thị giá */}
-                                        <span className="price" style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '3px' }}>
-                                            ${tour.price || 0}
-                                        </span>
+                                        <p className="price" style={{ position: 'absolute', top: '10px', right: '10px',color:'white', backgroundColor: 'rgba(0,0,0,0.7)', padding: '5px 10px', borderRadius: '3px', fontWeight: 'bold' }}>
+                                            <span>price: {tour.price  || "N/A"}$</span>
+                                        </p>
 
                                         <div className="text p-4">
                                             {/* Hiển thị Tên Tour */}
                                             <h3>{tour.tour_name || "Tour không tên"}</h3>
 
-                                            {/* 💡 ĐÃ THÊM: Description */}
+                                           
                                             <p style={{ fontSize: '14px', marginBottom: '10px', color: '#666' }}>
                                                 {tour.description ? `${tour.description.substring(0, 100)}...` : 'No description available.'}
                                             </p>
@@ -230,14 +230,12 @@ const Destination2 = () => {
                                                 <span className="fa fa-map-marker"></span> {tour.country || "Không xác định"}
                                             </p>
 
-                                            <p>Thời lượng: {tour.duration_hours || tour.duration} Days</p>
+                                            <p>Times: {tour.duration_hours || tour.duration} Days</p>
 
-                                            {/* 💡 ĐÃ THÊM: Available Seats */}
+                                           
                                             <p style={{ fontWeight: 'bold', color: tour.available_seats > 5 ? 'gray' : 'red' }}>
                                                 Seats: {tour.available_seats || 0}
                                             </p>
-
-                                            <p style={{ fontSize: '12px', color: '#666' }}>ID: {tour.tour_id}</p>
                                         </div>
                                     </div>
                                 </div>
