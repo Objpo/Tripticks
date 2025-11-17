@@ -22,7 +22,7 @@ const Intro = () => {
                                 backgroundImage: `url('/images/bg_2.jpg')`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
-                                backgroundAttachment: "fixed", // 💨 Parallax effect
+                                backgroundAttachment: "fixed",
                                 padding: "100px 20px",
                                 position: "relative",
                                 borderRadius: "10px",
