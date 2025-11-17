@@ -1,46 +1,86 @@
-import React from "react";
-// 💡 CẦN SỬ DỤNG useLocation, useNavigate cho Navbar
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar"; // Navbar bạn đã có
-import Footer from "../components/Footer"; // Footer bạn đã có
-// 💡 IMPORT TẤT CẢ CÁC COMPONENT PHỤ TRỢ từ file riêng
-import { Hero, ContactInfo, ContactForm, IntroBanner } from "../components/ContactContent";
+import React, { useState } from "react";
 
-// -------------------------------------------------------------------
-// 1. NAVBAR COMPONENT (Tích hợp Navbar thực tế - Nếu Navbar là external component)
-// 💡 LƯU Ý: Nếu Navbar của bạn nằm ở file components/navbar.jsx, bạn KHÔNG cần code này ở đây,
-// nhưng vì bạn nói "nó đã có navbar rồi", tôi giữ cấu trúc bọc như bạn yêu cầu.
-// -------------------------------------------------------------------
+const Contact = () => {
+    const [status, setStatus] = useState(null);
 
-const ContactPage = () => {
-  // 💡 SỬ DỤNG HOÀN TOÀN CẤU TRÚC ĐÚNG CHO PAGE CONTAINER
-  return (
-    <>
-      <Navbar />
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        console.log("Contact form:", data);
+       
+        setStatus("success");
+        setTimeout(() => setStatus(null), 4000);
+    };
 
-      {/* 💡 SỬ DỤNG HERO COMPONENT VỚI STYLE ĐÃ SỬA LỖI LAYOUT */}
-      <Hero
-        title="Contact Us"
-        breadcrumbs={
-          <>
-            <span className="mr-2">
-              <Link to="/" style={{ color: 'white' }}>Home <i className="fa fa-chevron-right"></i></Link>
-            </span>
-            <span style={{ color: 'white' }}>
-              Contact us <i className="fa fa-chevron-right"></i>
-            </span>
-          </>
-        }
-        bgImage="images/bg_1.jpg" // Sử dụng ảnh nền khác cho Contact Page
-      />
+    return (
+        <section className="ftco-section contact-section" id="contact">
+            <div className="container">
+                <div className="row justify-content-center pb-4">
+                    <div className="col-md-12 heading-section text-center ftco-animate">
+                        <h2 className="mb-4">Contact Us</h2>
+                    </div>
+                </div>
 
-      <ContactInfo />
-      <ContactForm />
-      <IntroBanner />
+                <div className="row d-flex contact-info mb-5">
+                    <div className="col-md-4 d-flex">
+                        <div className="info bg-light p-4">
+                            <p><span className="fa fa-map-marker"></span> 203 Fake St. Mountain View, San Francisco, CA</p>
+                        </div>
+                    </div>
+                    <div className="col-md-4 d-flex">
+                        <div className="info bg-light p-4">
+                            <p><a href="tel:+12323929210"><span className="fa fa-phone"></span> +2 392 3929 210</a></p>
+                        </div>
+                    </div>
+                    <div className="col-md-4 d-flex">
+                        <div className="info bg-light p-4">
+                            <p><a href="mailto:info@yourdomain.com"><span className="fa fa-paper-plane"></span> info@yourdomain.com</a></p>
+                        </div>
+                    </div>
+                </div>
 
-      <Footer />
-    </>
-  );
+                <div className="row">
+                    <div className="col-md-7">
+                        <form className="bg-light p-4" onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" className="form-control" placeholder="Your name" required />
+                            </div>
+
+                            <div className="form-group">
+                                <label>Email</label>
+                                <input name="email" type="email" className="form-control" placeholder="Your email" required />
+                            </div>
+
+                            <div className="form-group">
+                                <label>Subject</label>
+                                <input name="subject" type="text" className="form-control" placeholder="Subject" />
+                            </div>
+
+                            <div className="form-group">
+                                <label>Message</label>
+                                <textarea name="message" cols="30" rows="7" className="form-control" placeholder="Message" required></textarea>
+                            </div>
+
+                            <div className="form-group">
+                                <input type="submit" value="Send Message" className="btn btn-primary py-3 px-5" />
+                            </div>
+
+                            {status === "success" && (
+                                <div className="alert alert-success">Message sent (simulated)</div>
+                            )}
+                        </form>
+                    </div>
+
+                    <div className="col-md-5 d-flex">
+                        <div id="map" className="bg-light" style={{ width: "100%", minHeight: 350 }}>
+                            <p className="p-4">Map placeholder (put your map or iframe here)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
-export default ContactPage;
+export default Contact;
