@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// 1. ĐỊNH NGHĨA SCHEMA CHO PHÒNG (SUB-DOCUMENT)
+// 1. ĐỊNH NGHĨA SCHEMA 
 const RoomSchema = new mongoose.Schema({
   room_name: {
     type: String,
@@ -24,7 +24,7 @@ const RoomSchema = new mongoose.Schema({
   },
 });
 
-// 2. ĐỊNH NGHĨA SCHEMA CHÍNH CHO KHÁCH SẠN (HOTEL)
+// 2. ĐỊNH NGHĨA SCHEMA cho hotel
 const HotelSchema = new mongoose.Schema(
   {
     hotel_name: {
@@ -37,12 +37,12 @@ const HotelSchema = new mongoose.Schema(
     },
     img: {
       type: String,
-      required: false, // img ở cấp cao nhất
+      required: false, 
     },
-    rooms: [RoomSchema], // Tên mảng là 'rooms'
+    rooms: [RoomSchema], 
   },
   { timestamps: true }
 );
 
-// 3. XUẤT MODEL
+// xuat model
 export default mongoose.model("Hotel", HotelSchema);
