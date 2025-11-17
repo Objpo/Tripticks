@@ -8,12 +8,10 @@ const TourSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   duration_hours: { type: String },
   available_seats: { type: Number },
-  // 💡 TRƯỜNG IMG (Ảnh Tour) để hiển thị trên frontend
   img: { type: String, required: false },
   last_updated: { type: String },
 }, { timestamps: true });
 
-// Tránh lỗi OverwriteModelError
 const Tour = mongoose.models.Tour || mongoose.model("Tour", TourSchema);
 
 export default Tour;
