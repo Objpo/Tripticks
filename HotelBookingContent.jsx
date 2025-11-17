@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const HotelBookingContent = () => {
-    // --- AOS khởi tạo ---
+  
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -20,36 +20,36 @@ const HotelBookingContent = () => {
         return () => document.body.removeChild(script);
     }, []);
 
-    // --- State form (chuyên cho khách sạn) ---
+  
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        room_data: "", // 💡 Sẽ lưu trữ JSON string của phòng được chọn
+        room_data: "", 
         guests: 1,
         date: ""
     });
 
-    // --- State để lưu danh sách phòng từ API ---
+   
     const [rooms, setRooms] = useState([]);
 
-    // --- useEffect để fetch danh sách phòng ---
+   
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                // 💡 Gọi API từ hotelRoutes.js
+          
                 const response = await fetch("/api/hotels");
                 if (!response.ok) {
                     throw new Error("Không thể tải danh sách phòng");
                 }
                 const data = await response.json();
-                setRooms(data); // Lưu dữ liệu phòng vào state
+                setRooms(data); 
             } catch (error) {
                 console.error("Lỗi khi fetch phòng:", error);
             }
         };
 
         fetchRooms();
-    }, []); // Chỉ chạy 1 lần
+    }, []); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -64,9 +64,9 @@ const HotelBookingContent = () => {
             return;
         }
 
-        // 💡 Sửa: Không gọi /api/hotel-bookings, gọi /api/payment/create_hotel_payment
+      
         try {
-            // (formData đã chứa: name, email, date, guests, room_data)
+       
             const response = await fetch("/api/payment/create_hotel_payment", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -79,7 +79,7 @@ const HotelBookingContent = () => {
                 throw new Error(result.message || "Không thể tạo link thanh toán.");
             }
 
-            // 💡 Thành công! Chuyển hướng người dùng đến VNPAY
+         
             window.location.href = result.paymentUrl;
 
         } catch (error) {
@@ -93,9 +93,9 @@ const HotelBookingContent = () => {
             {/* Hero Section (tương tự) */}
             <section
                 className="hero-wrap hero-wrap-2 js-fullheight"
-                style={{ backgroundImage: "url('images/bg_3.jpg')" }} // (Thay ảnh nền nếu muốn)
+                style={{ backgroundImage: "url('images/bg_3.jpg')" }} 
             >
-                {/* ... (overlay và breadcrumbs) ... */}
+            
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -148,11 +148,11 @@ const HotelBookingContent = () => {
                                         />
                                     </div>
 
-                                    {/* 💡 DROPDOWN CHỌN PHÒNG (thay cho Tour và Hotel) */}
+                                  
                                     <div className="form-group">
                                         <select
                                             className="form-control"
-                                            name="room_data" // 💡 Tên state
+                                            name="room_data" 
                                             value={formData.room_data}
                                             onChange={handleChange}
                                             required
@@ -160,15 +160,11 @@ const HotelBookingContent = () => {
                                             <option value="">-- Chọn Phòng Khách Sạn --</option>
                                             {rooms.map((room) => (
                                                 <option
-                                                    // 💡 Lưu cả object room thành string
+                                                  
                                                     key={room._id}
                                                     value={JSON.stringify(room)}
                                                 >
-                                                    {/* Hiển thị thông tin phòng. 
-                                                        Lưu ý: hotelRoutes không trả về hotel_name.
-                                                        Bạn nên cập nhật hotelRoutes để trả về hotel_name.
-                                                        Tạm thời chúng ta dùng country.
-                                                    */}
+                                                    
                                                     {room.room_name} ({room.country}) - ${room.price_per_night}
                                                 </option>
                                             ))}
@@ -190,7 +186,7 @@ const HotelBookingContent = () => {
                                         <input
                                             type="date"
                                             className="form-control"
-                                            placeholder="Date" // (Label là Date)
+                                            placeholder="Date"
                                             name="date"
                                             value={formData.date}
                                             onChange={handleChange}
