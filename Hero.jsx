@@ -33,14 +33,14 @@ const Hero = () => {
         }}
       ></div>
 
-      {/* Nội dung chính */}
+      
       <div className="container position-relative" style={{ zIndex: 2 }}>
         <div className="row justify-content-center align-items-center text-center">
           <div
             className="col-md-10 d-flex flex-column flex-md-row align-items-center justify-content-center"
             data-aos="fade-up"
           >
-            {/* Text bên trái */}
+           
             <div
               className="hero-text me-md-5"
               style={{
@@ -80,7 +80,7 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* Nút video bên phải — có khoảng cách xa hơn */}
+       
             <div
               className="hero-video mt-4 mt-md-0 ms-md-5"
               data-aos="zoom-in"
