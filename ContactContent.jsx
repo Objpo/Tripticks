@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// -------------------------------------------------------------------
-// 1. HERO COMPONENT (Đã sửa lỗi layout)
-// -------------------------------------------------------------------
+
 export const Hero = ({ title, breadcrumbs, bgImage }) => {
     return (
-        // 💡 ĐÃ SỬA: Loại bỏ js-fullheight, áp dụng chiều cao cố định và padding-top an toàn
+     
         <section
             className="hero-wrap hero-wrap-2"
             style={{
@@ -18,19 +16,19 @@ export const Hero = ({ title, breadcrumbs, bgImage }) => {
                 backgroundPosition: 'center center',
                 backgroundSize: 'cover',
                 position: 'relative',
-                paddingTop: '70px', // Đệm an toàn dưới Navbar
+                paddingTop: '70px', 
             }}
         >
             <div className="overlay" style={{ opacity: 0.5 }}></div>
             <div className="container" style={{ position: 'relative', height: '100%' }}>
                 <div className="row no-gutters slider-text justify-content-center align-items-center" style={{ height: '100%' }}>
-                    {/* 💡 ĐÃ SỬA: Loại bỏ ftco-animate */}
+                
                     <div className="col-md-9 pb-5 text-center" style={{ zIndex: 2, color: 'white' }}>
 
-                        {/* Breadcrumbs */}
+                      
                         <p className="breadcrumbs" style={{ color: 'white' }}>{breadcrumbs}</p>
 
-                        {/* Title chính */}
+                 
                         <h1 className="mb-0 bread" style={{ color: 'white', fontSize: '3rem' }}>{title}</h1>
                     </div>
                 </div>
@@ -39,9 +37,7 @@ export const Hero = ({ title, breadcrumbs, bgImage }) => {
     );
 };
 
-// -------------------------------------------------------------------
-// 2. CONTACT INFO COMPONENT
-// -------------------------------------------------------------------
+
 export const ContactInfo = () => {
     const infos = [
         { icon: "fa-map-marker", title: "Address", text: "198 West 21th Street, Suite 721 New York NY 10016" },
@@ -71,15 +67,11 @@ export const ContactInfo = () => {
     );
 };
 
-// -------------------------------------------------------------------
-// 3. CONTACT FORM COMPONENT (Bao gồm Map)
-// -------------------------------------------------------------------
+
 export const ContactForm = () => {
     const [status, setStatus] = useState(null);
 
     useEffect(() => {
-        // 💡 Logic khởi tạo Leaflet Map
-        // Cần kiểm tra xem container map đã có trên DOM chưa
         if (document.getElementById("map")) {
             const map = L.map("map").setView([40.7128, -74.006], 13);
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -132,9 +124,7 @@ export const ContactForm = () => {
     );
 };
 
-// -------------------------------------------------------------------
-// 4. INTRO BANNER COMPONENT
-// -------------------------------------------------------------------
+
 export const IntroBanner = () => {
     return (
         <section className="ftco-intro ftco-section ftco-no-pt">
@@ -154,12 +144,10 @@ export const IntroBanner = () => {
     );
 };
 
-// -------------------------------------------------------------------
-// 5. CONTACT CONTENT CHÍNH
-// -------------------------------------------------------------------
+
 const ContactContent = () => {
     return (
-        // 💡 LƯU Ý: Component này KHÔNG chứa Navbar, nó chỉ chứa nội dung
+      
         <div className="main-content">
             <Hero
                 title="Contact Us"
@@ -169,7 +157,7 @@ const ContactContent = () => {
                         <span>Contact <i className="fa fa-chevron-right"></i></span>
                     </>
                 }
-                bgImage="images/bg_3.jpg" // Dùng ảnh nền khác cho trang Contact
+                bgImage="images/bg_3.jpg" 
             />
 
             <ContactInfo />
